@@ -1,7 +1,7 @@
 import { Inter, Urbanist } from "next/font/google";
 import "./globals.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Header from "@/components/Header/Header";
 import Footers from "@/components/Footers/Footers";
 import Session from "@/components/sessionProviders/SessionProvider";
@@ -21,12 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${Urbanistt.className} bg-main-bg w-full   text-darkText`}
+        className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
       >
         <Session>
           <Header />
           {children}
-          {/* <Footers /> */}
+          <Footers />
         </Session>
       </body>
     </html>
