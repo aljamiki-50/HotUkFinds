@@ -9,8 +9,12 @@ import { FaArrowLeft, FaArrowRight, FaGripfire } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { client } from "@/sanity/lib/client";
+import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
 
-const page = () => {
+const page = async () => {
+  const shopProducts = await GetShopData();
+  // console.log(shopProducts);
   const NextArrow = (props) => {
     const { onClick } = props;
     return (
@@ -62,13 +66,18 @@ const page = () => {
         <div className=" grid grid-cols-7 gap-x-3  ">
           {/* The left side where you have all the product  */}
           <div className="   col-span-5 gap-y-2   rounded-lg flex flex-col">
+            {shopProducts?.map((product, index) => (
+              <div key={index} className="">
+                 <ProudctCard product={product} />
+              </div>
+            ))}
+            {/* <ProudctCard />
             <ProudctCard />
             <ProudctCard />
             <ProudctCard />
             <ProudctCard />
             <ProudctCard />
-            <ProudctCard />
-            <ProudctCard />
+            <ProudctCard /> */}
           </div>
           {/* The right side where you have all the product  */}
           {/* The right side where you have all the product  */}
@@ -108,7 +117,7 @@ const page = () => {
                 </div>
               </Slider>
             </div>
-             {/* Section of the Popular Categories */}
+            {/* Section of the Popular Categories */}
             {/* Section of the Popular Categories */}
             <div className=" ">
               {/* The Titile of the Section */}

@@ -48,8 +48,8 @@ const Shopheader = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 4000,
+    speed: 3000,
+    autoplaySpeed: 1000,
     // waitForAnimate: false
     cssEase: "ease-in-out",
   };
