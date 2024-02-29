@@ -62,6 +62,18 @@ export default {
       ],
     },
     {
+      name: "trendingProduct",
+      title: "TrendingProduct",
+      // The type reference denotes we referencing to a certain type
+      type: "reference",
+      // to refering to category as in this field will be added
+      to: [
+        {
+          type: "trendingProducts",
+        },
+      ],
+    },
+    {
       name: "affiliateLink",
       type: "url", // Assuming affiliate link is a URL
       title: "Affiliate Link",

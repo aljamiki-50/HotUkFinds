@@ -8,5 +8,11 @@ const imageBuilder = createImageUrlBuilder({
 })
 
 export const urlForImage = (source) => {
+  // console.log("here is the source",source);
+  if (!source) {
+    console.error("Invalid image source:", source);
+    return "";
+  }
+
   return imageBuilder?.image(source).auto('format').fit('max').url()
 }

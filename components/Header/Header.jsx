@@ -19,7 +19,6 @@ import { signIn, signOut, useSession } from "next-auth/react";
 const Header = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
 
-  // console.log(session);
 
   return (
     <div>

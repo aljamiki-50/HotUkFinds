@@ -2,7 +2,6 @@
 
 import { client } from "@/sanity/lib/client";
 
-
 export async function GetCertainProduct(slug) {
   const query = `
     *[_type=="product" && slug.current == "${slug}"][0]{
@@ -16,9 +15,13 @@ export async function GetCertainProduct(slug) {
       price_id,
       ratings,
       affiliateLink,
+      "Trending":trendingProduct->name,
+
     }
   `;
 
   const data = await client.fetch(query);
   return data;
 }
+
+

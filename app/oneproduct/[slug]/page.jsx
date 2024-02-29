@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import AllProducts from "@/components/AllProducts/AllProducts";
 import ProductCard from "@/components/AllProducts/ProductCard";
 import Container from "@/components/Container/Container";
@@ -7,16 +7,43 @@ import { BsStar, BsTruck } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Slider from "react-slick";
 import Link from "next/link";
-import { GetCertainProduct } from "@/Helpers/GetCertainProduct";
-
+import { useEffect, useState } from "react";
+import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
+import { GetCertainProduct } from "@/Helpers/oneSlugPage/GetCertainProduct";
+import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
 
 // export const dynamic = "force-dynamic";
-export const cache = "force-cache"
+export const cache = "force-cache";
 
+const OneProudctPage = ({ params }) => {
+  const [product, setProduct] = useState(null);
+  const [trendingproducts, setTrendingproducts] = useState([]);
+  const [popularProducts, setPopularProducts] = useState([]);
 
-const OneProudctPage = async ({ params }) => {
-  const Product = await GetCertainProduct(params.slug);
+  // const Product = await GetCertainProduct(params.slug);
   //   const Product = await GetCertainProduct(params.slug);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const fetchedProduct = await GetCertainProduct(params.slug);
+      setProduct(fetchedProduct);
+    };
+
+    // Fetching the product within the trendingProduct here
+
+    const fetchtrending = async () => {
+      const fetchedtrends = await TrendOnes();
+      setTrendingproducts(fetchedtrends);
+    };
+    // Fetching the popular Data here
+    const fetchPopTrending = async () => {
+      const fetchPopTrending = await popularTrend();
+      setPopularProducts(fetchPopTrending);
+    };
+
+    fetchProduct();
+    fetchtrending();
+    fetchPopTrending();
+  }, [params.slug]);
 
   const NextArrow = (props) => {
     const { onClick } = props;
@@ -64,20 +91,19 @@ const OneProudctPage = async ({ params }) => {
     cssEase: "ease-in-out",
   };
 
-
   return (
     <div className="      min-h-screen ">
       <Container>
         <div className=" mx-auto max-w-screen-xl px-4 md:px-8">
-          <div className=" grid gap-8 md:grid-cols-2">
-            <ImagesGallery images={Product.images} />
+          <div className=" grid gap-8  sm:grid-cols-2">
+            <ImagesGallery images={product?.images} />
             <div className="md:py-8">
               <div className="  md:mb-3 mb-2">
                 <span className=" uppercase font-semibold tracking-wide mb-0.5  inline-block text-gray-500">
-                  {Product.categoryName}
+                  {product?.categoryName}
                 </span>
                 <h2 className=" text-2xl font-bold text-gray-800 lg:text-3xl">
-                  {Product.name}
+                  {product?.slug}
                 </h2>
               </div>
               <div className=" mb-6 flex items-center gap-3 md:mb-10">
@@ -86,16 +112,16 @@ const OneProudctPage = async ({ params }) => {
                   <BsStar className=" h-5 w-5" />
                 </button>
                 <span className=" text-sm text-gray-500 transition duration-100">
-                  {Product?.ratings} Ratings
+                  {product?.ratings} Ratings
                 </span>
               </div>
               <div className=" mb-4">
                 <div className=" flex items-end  gap-2">
                   <span className="  text-xl font-bold text-gray-800 md:text-2xl">
-                    ${Product?.price}
+                    ${product?.price}
                   </span>
                   <span className="   mb-0.5 text-red-500   line-through">
-                    ${Product?.oldprice}
+                    ${product?.oldprice}
                   </span>
                 </div>
                 <span className=" text-sm text-gray-500">
@@ -107,18 +133,19 @@ const OneProudctPage = async ({ params }) => {
                 <span className=" text-sm"> 2-4 days shipping</span>
               </div>
               <div className=" flex gap-2.5">
-                <button className=" w-full bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100   hover:bg-orange-800 hover:text-white duration-200">
+                {product && product.affiliateLink && (
                   <Link
-                    href={Product?.affiliateLink}
+                    href={product.affiliateLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="w-full text-center bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
                   >
                     Buy Now
                   </Link>
-                </button>
+                )}
               </div>
               <p className=" mt-5 text-base text-gray-500 tracking-wide line-clamp-6">
-                {Product.description}
+                {product?.description}
               </p>
             </div>
           </div>
@@ -126,71 +153,38 @@ const OneProudctPage = async ({ params }) => {
         {/* The Trending Products Parts Here  */}
         <div className=" flex flex-col gap-y-2">
           <h1 className=" text-6xl py-2 font-bold antialiased">
-            Trending Products
+            Trending Products :
           </h1>
           <Slider
-            className="  flex  flex-col sm:flex-row   gap-x-10 justify-around  "
+            className="    sm:flex  flex-col sm:flex-row   gap-x-10 justify-around  "
             {...settings}
           >
-            <div className=" ">
-              <div className="  ml-2 ">
-                {" "}
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
+            {trendingproducts &&
+              trendingproducts?.map((items) => (
+                <div className=" ">
+                  <div className="  ml-2 ">
+                    <ProductCard items={items} />
+                  </div>
+                </div>
+              ))}
           </Slider>
         </div>
         <div className="  flex flex-col gap-y-2 ">
           <h1 className=" text-6xl py-2 font-bold antialiased">
             Popular Products
           </h1>
-          <Slider className=" flex    gap-x-10 justify-around  " {...settings}>
-            <div className=" ">
-              <div className="  ml-2 ">
-                {" "}
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
-            <div className="   ">
-              <div className=" ml-2 ">
-                <ProductCard />
-              </div>
-            </div>
+          <Slider
+            className="    sm:flex  sm:flow-row   gap-x-10 justify-around  "
+            {...settings}
+          >
+            {popularProducts &&
+              popularProducts?.map((items) => (
+                <div className=" ">
+                  <div className=" my-2  ml-2 ">
+                    <ProductCard items={items} />
+                  </div>
+                </div>
+              ))}
           </Slider>
         </div>
       </Container>

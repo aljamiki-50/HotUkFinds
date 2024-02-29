@@ -13,8 +13,8 @@ const ProudctCard = ({ product }) => {
 
   // console.log(product?.image1);
   return (
-    <div className=" grid grid-cols-6  ring-1 ring-black rounded-lg   bg-white items-center align-center  p-3 gap-x-3 py-4">
-      <div className="   col-span-2  object-cover pt-5  w-full h-full">
+    <div className=" sm:grid sm:grid-cols-6  ring-1 ring-black rounded-lg   bg-white items-center align-center  p-3 gap-x-3 py-4">
+      <div className=" col-span-7   sm:col-span-2  object-cover pt-5  w-full h-full">
         <Image
           src={ishovered ? product?.image1 : product?.image2}
           alt={product?.name}
@@ -54,7 +54,7 @@ const ProudctCard = ({ product }) => {
             </span>{" "}
             {/* <span>{product?.name}</span> */}
           </div>
-          <p className=" line-clamp-2  font-medium antialiased">
+          <p className="     line-clamp-2 font-medium antialiased">
             {product.description}
           </p>
           <button className=" w-full bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100   hover:bg-orange-800 hover:text-white duration-200">
@@ -70,8 +70,7 @@ const ProudctCard = ({ product }) => {
           <button className=" w-full bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100   hover:bg-orange-800 hover:text-white duration-200">
             <Link
               href={`/oneproduct/${product?.slug}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              
             >
               Read more
             </Link>

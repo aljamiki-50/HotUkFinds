@@ -52,33 +52,36 @@ const Banner = () => {
       <Slider {...settings}>
         <div className=" relative w-full h-full object-center">
           <Image
-            objectFit="cover"
+            // layout="fill"
             src={sale1}
             alt=" sale1"
             width={1920}
             height={1080}
             priority
+            objectPosition="center"
           />
           <BannerText title={"Picks for good winter"} />
         </div>
         <div className=" relative w-full h-full object-center">
           <Image
-            objectFit="cover"
+            // layout="fill"
             src={sale2}
-            alt=" sale2"
+            alt=" sale1"
             width={1920}
             height={1080}
             priority
+            objectPosition="center"
           />
           <BannerText title={"Picks for good winter"} />
         </div>
         <div className="relative w-full h-full object-center">
           <Image
-            objectFit="cover"
+            // layout="fill"
             src={sale3}
-            alt=" sale3"
+            alt=" sale1"
             width={1920}
             height={1080}
+            objectPosition="center"
           />
           <BannerText title={"Picks for good winter"} />
         </div>

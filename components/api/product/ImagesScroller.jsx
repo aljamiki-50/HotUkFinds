@@ -1,42 +1,51 @@
-import shoe1 from "@/assets/shoe1.jpg";
-import shoe2 from "@/assets/shoe2.jpg";
-import shoe3 from "@/assets/shoe3.jpg";
-import shoe4 from "@/assets/shoe1.jpg";
-import Image from "next/image";
-import { useState } from "react";
+"use client";
 import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const ImagesGallery = ({ images }) => {
-  const [bigImage, setBigImage] = useState(images[1]);
+  const [bigImage, setBigImage] = useState(null);
 
+  useEffect(() => {
+    if (images && images?.[0].asset?._ref) {
+      setBigImage(images?.[0].asset?._ref);
+    }
+  }, [images]);
+
+  // console.log(images);
   const handleBigImage = function (image) {
-    // alert("it s a hectic")
-    setBigImage(image);
+    if (image && image.asset && image.asset._ref) {
+      setBigImage(image.asset._ref);
+    }
   };
 
   try {
     return (
-      <div className=" grid grid-cols-4 gap-4 lg:grid-cols-5 items-center">
-        <div className=" order-last flex gap-4 lg:order-none lg:flex-col">
-          {images.slice(0, 4)?.map((image, index) => (
-            <div key={index} className=" overflow-hidden rounded-lg bg-green-100">
+      <div className=" grid sm:grid-cols-4 gap-4 lg:grid-cols-5 items-center">
+        <div className=" order-last  grid-cols-5   sm:flex gap-4 sm:order-none sm:flex-col">
+          {images?.slice(0, 4)?.map((image, index) => (
+            <div
+              key={index}
+              className=" overflow-hidden rounded-lg ring-[.5px] ring-black bg-slate-100"
+            >
               <Image
                 onClick={() => handleBigImage(image)}
-                src={urlForImage(image)}
-                width={300}
+                src={urlForImage(image || image?.asset?._ref)}
+                // src={image}
+                width={500}
                 height={500}
-                className="  object-cover  object-center cursor-pointer"
+                className="  object-contain   cursor-pointer"
               />
             </div>
           ))}
         </div>
-        <div className=" relative overflow-hidden   ansition duration-100 rounded-lg w-full lg:h-[90%]  bg-green-100 lg:col-span-4">
+        <div className=" relative      antialiased duration-100 rounded-lg w-full lg:h-[90%]  bg-slate-100 lg:col-span-4">
           <Image
             src={urlForImage(bigImage)}
             alt="The here image "
             width={600}
             height={600}
-            className=" w-full h-full object-cover"
+            className=" w-full h-full object-contain"
           />
           <span className=" absolute left-0 top-0  rounded-br-lg   bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white">
             {"sale"}

@@ -1,7 +1,8 @@
+import TrendingProducts from "./schemas/TrendingProducts";
 import categories from "./schemas/categories";
 import heroImages from "./schemas/heroImages";
 import product from "./schemas/product";
 
 export const schema = {
-  types: [categories,heroImages,product],
+  types: [categories,heroImages,product,TrendingProducts],
 }

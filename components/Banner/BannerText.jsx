@@ -19,7 +19,7 @@ const BannerText = ({ title }) => {
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className=" text-xl text-white text-bodyColor"
+          className=" text-xl  text-bodyColor"
         >
           Stock up on sport wear and limted Edition collection on our <br />{" "}
           awesome mid-season sale

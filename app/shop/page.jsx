@@ -4,16 +4,42 @@ import Header from "@/components/Header/Header";
 import ProudctCard from "@/components/shop/ProudctCart/ProudctCard";
 import Hottest from "@/components/shop/RightBar/Hottest";
 import Shopheader from "@/components/shop/Shopheader";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaGripfire } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { client } from "@/sanity/lib/client";
 import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
+import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
 
-const page = async () => {
-  const shopProducts = await GetShopData();
+const page = () => {
+  const [shopProducts, setShopProducts] = useState([]);
+  const [popularProducts, setPopularProducts] = useState([]);
+  const [trendingproducts, setTrendingproducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProductsAll = async () => {
+      const Fetchalldata = await GetShopData();
+
+      setShopProducts(Fetchalldata);
+    };
+    // Fetching the product within the trendingProduct here
+
+    const fetchtrending = async () => {
+      const fetchedtrends = await TrendOnes();
+      setTrendingproducts(fetchedtrends);
+    };
+
+    fetchProductsAll();
+    fetchtrending();
+  }, [trendingproducts],[]);
+
+  // console.log(trendingproducts);
+
+  // console.log(shopProducts);
+
+  // const shopProducts = await GetShopData();
   // console.log(shopProducts);
   const NextArrow = (props) => {
     const { onClick } = props;
@@ -65,23 +91,16 @@ const page = async () => {
       <Container classname={" bg-slate-100/40"}>
         <div className=" grid grid-cols-7 gap-x-3  ">
           {/* The left side where you have all the product  */}
-          <div className="   col-span-5 gap-y-2   rounded-lg flex flex-col">
+          <div className="  col-span-7   sm:col-span-5 gap-y-2   rounded-lg flex flex-col">
             {shopProducts?.map((product, index) => (
               <div key={index} className="">
-                 <ProudctCard product={product} />
+                <ProudctCard product={product} />
               </div>
             ))}
-            {/* <ProudctCard />
-            <ProudctCard />
-            <ProudctCard />
-            <ProudctCard />
-            <ProudctCard />
-            <ProudctCard />
-            <ProudctCard /> */}
           </div>
           {/* The right side where you have all the product  */}
           {/* The right side where you have all the product  */}
-          <div className=" col-span-2 ring-1 ring-black rounded-lg  px-1 flex flex-col ">
+          <div className="hidden sm:col-span-2 ring-1 ring-black rounded-sm  px-1 lg:flex flex-col ">
             {/* Section of the hottest */}
             {/* Section of the hottest */}
             <div className=" ">
@@ -103,18 +122,12 @@ const page = async () => {
                 className=" relative   w-auto  pb-16  py-3 text-center mt-4"
                 {...settings}
               >
-                <div className=" relative">
-                  <Hottest />
-                </div>
-                <div className=" relative">
-                  <Hottest />
-                </div>
-                <div className=" relative">
-                  <Hottest />
-                </div>
-                <div className=" relative">
-                  <Hottest />
-                </div>
+                {trendingproducts &&
+                  trendingproducts?.map((trending, index) => (
+                    <div className=" relative">
+                      <Hottest items={trending} />
+                    </div>
+                  ))}
               </Slider>
             </div>
             {/* Section of the Popular Categories */}
