@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
 import { GetCertainProduct } from "@/Helpers/oneSlugPage/GetCertainProduct";
 import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
+import { LuExternalLink } from "react-icons/lu";
 
 // export const dynamic = "force-dynamic";
 export const cache = "force-cache";
@@ -50,7 +51,7 @@ const OneProudctPage = ({ params }) => {
     return (
       <div
         onClick={onClick}
-        className=" opacity-40 hover:opacity-90 p-3
+        className=" opacity-40 hover:opacity-90 p-3 ring-10 ring-red-500
            bg-slate-100 hover:text--orange-500 duration-200 rounded-full flex  
            justify-center absolute -left-10 top-[40%] hover:bg-white hover:text-black cursor-pointer "
       >
@@ -76,7 +77,7 @@ const OneProudctPage = ({ params }) => {
 
   //   Slider settings
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
 
     // speed: 500,
@@ -134,13 +135,21 @@ const OneProudctPage = ({ params }) => {
               </div>
               <div className=" flex gap-2.5">
                 {product && product.affiliateLink && (
+                  // <Link
+                  //   href={product.affiliateLink}
+                  //   target="_blank"
+                  //   rel="noopener noreferrer"
+                  //   className="w-full text-center bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
+                  // >
+                  //   Buy Now
+                  // </Link>
                   <Link
-                    href={product.affiliateLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
+                    href={product.affiliateLink}
+                       className="w-full text-center flex font-semibold  justify-center bg-orange-600 px-4 py-3 items-center gap-x-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
                   >
-                    Buy Now
+                    Buy now <LuExternalLink />
                   </Link>
                 )}
               </div>
@@ -151,7 +160,7 @@ const OneProudctPage = ({ params }) => {
           </div>
         </div>
         {/* The Trending Products Parts Here  */}
-        <div className=" flex flex-col gap-y-2">
+        <div className=" hidden   sm:flex  flex-col gap-y-2">
           <h1 className=" text-6xl py-2 font-bold antialiased">
             Trending Products :
           </h1>
@@ -169,7 +178,7 @@ const OneProudctPage = ({ params }) => {
               ))}
           </Slider>
         </div>
-        <div className="  flex flex-col gap-y-2 ">
+        <div className=" hidden   sm:flex flex-col gap-y-2 ">
           <h1 className=" text-6xl py-2 font-bold antialiased">
             Popular Products
           </h1>

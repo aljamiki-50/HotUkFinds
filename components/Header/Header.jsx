@@ -5,20 +5,17 @@ import Logo from "../Logo/Logo";
 import Image from "next/image";
 import Link from "next/link";
 import { BsBookmark } from "react-icons/bs";
-
 import { CiShoppingCart } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { signIn, signOut, useSession } from "next-auth/react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect, useState } from "react";
-// import FormatedAmounts from "./AllProducts/FormatedAmounts";
-// import { AddUser, delUser } from "@/ReduxStore/ShoppingSlice";
+import Shopheader from "../shop/Shopheader";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
-
+  const pathname = usePathname();
 
   return (
     <div>
@@ -51,25 +48,6 @@ const Header = () => {
               <p className=" text-sm font-semibold  ">Login/Register</p>
             </div>
           )}
-
-          {/* Cart Button  */}
-          {/* <Link href={"/cart"}>
-            <div
-              className="
-         bg-black   text-slate-100 hover:text-white justify-center rounded-full hover:bg-slate-950h flex items-center gap-x-1 py-1.5 px-3
-          border-black hover:border-orange-600 duration-200 border-[1px] relative
-         "
-            >
-              <CiShoppingCart className="text-xl" />
-              <p className=" text-sm font-semibold  ">
-                <FormatedAmounts amount={totalAmount || 0} />
-              </p>
-              <span className="CartDiv">
-                {productData ? productData?.length : "0"}
-              </span>
-            </div>
-          </Link> */}
-
           {/* user image  */}
           {session && (
             <Image
@@ -81,17 +59,6 @@ const Header = () => {
               alt="my profile image"
             />
           )}
-          {/* Order Button */}
-          {/* {orderData && session && ( */}
-          {/* <Link
-              className=" fill-indigo-400  ring-1 ring-indigo-500 headerDiv px-2 gap-x-1  cursor-pointer"
-              href={"/order"}
-            >
-              <BsBookmark className=" text-2xl" />
-              <p className=" text-sm font-semibold">Orders</p>
-            </Link> */}
-          {/* )} */}
-          {/* Logout section */}
           {session && (
             <div
               onClick={() => {
@@ -105,6 +72,7 @@ const Header = () => {
           )}
         </Container>
       </div>
+      {pathname.startsWith("/category") && <Shopheader />}
     </div>
   );
 };

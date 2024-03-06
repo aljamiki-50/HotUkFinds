@@ -35,7 +35,7 @@ const ProductCard = ({ items }) => {
             onMouseLeave={() => {
               setishovered(false);
             }}
-            className=" relative  w-full h-96 group overflow-hidden hover:"
+            className=" relative  object-contain  w-full h-96 group overflow-hidden hover:"
           >
             <Image
               src={initialImage}
@@ -43,7 +43,7 @@ const ProductCard = ({ items }) => {
               height={500}
               alt=" picture for"
               className={`
-                           w-full h-full object-cover group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out
+                           w-full h-full object-fit group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out
 
               `}
             />
@@ -68,7 +68,7 @@ const ProductCard = ({ items }) => {
                   {/* {items?.oldPrice} */}
                   <FormatedAmounts amount={items?.oldprice} />
                 </p>
-                <p className="  font-semibold ">
+                <p className="  font-semibold   text-green-500 text-xl ">
                   {/* {items?.oldPrice} */}
                   <FormatedAmounts amount={items?.price} />
                 </p>
@@ -88,6 +88,7 @@ const ProductCard = ({ items }) => {
               {/* Start icon */}
               <div className=" flex items-center gap-x-1">{startArray}</div>
             </div>{" "}
+            objectPosition
           </div>
         </div>
       </Link>

@@ -12,8 +12,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { client } from "@/sanity/lib/client";
 import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
 import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
+import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
 
-const page = () => {
+const Page = () => {
   const [shopProducts, setShopProducts] = useState([]);
   const [popularProducts, setPopularProducts] = useState([]);
   const [trendingproducts, setTrendingproducts] = useState([]);
@@ -21,34 +22,35 @@ const page = () => {
   useEffect(() => {
     const fetchProductsAll = async () => {
       const Fetchalldata = await GetShopData();
-
       setShopProducts(Fetchalldata);
     };
-    // Fetching the product within the trendingProduct here
 
     const fetchtrending = async () => {
       const fetchedtrends = await TrendOnes();
       setTrendingproducts(fetchedtrends);
     };
 
-    fetchProductsAll();
+    // is the  lst one ever you
+    const fetchPopTrending = async () => {
+      const fetchPopTrending = await popularTrend();
+      setPopularProducts(fetchPopTrending);
+    };
+    // console.log(popularProducts);
+
+    fetchPopTrending(), fetchProductsAll();
     fetchtrending();
-  }, [trendingproducts],[]);
+  }, []); // Removed extra empty array here
 
-  // console.log(trendingproducts);
+  // console.log(popularProducts);
 
-  // console.log(shopProducts);
-
-  // const shopProducts = await GetShopData();
-  // console.log(shopProducts);
   const NextArrow = (props) => {
     const { onClick } = props;
     return (
       <div
         onClick={onClick}
-        className=" opacity-40 hover:opacity-90 p-3
-         bg-slate-100 hover:text--orange-500 duration-200 rounded-full flex  
-         justify-center absolute left-3  -bottom-9 hover:bg-white hover:text-black cursor-pointer "
+        className="sm:absolute  z-30 opacity-40 hover:opacity-90 p-3
+           hover:text--orange-500 duration-200 rounded-full sm:flex  
+           justify-center left-3 bottom-0  hover:bg-white hover:text-black cursor-pointer"
       >
         <FaArrowLeft />
       </div>
@@ -60,10 +62,9 @@ const page = () => {
     return (
       <div
         onClick={onClick}
-        className=" 
-        opacity-40 hover:opacity-90 p-3
-         bg-slate-100 hover:text--orange-500 duration-200 rounded-full flex z-40  
-         justify-center  absolute right-3  -bottom-9 hover:bg-white hover:text-black cursor-pointer"
+        className="sm:absolute  opacity-40 hover:opacity-90 p-3 z-30
+           bg-slate-100 hover:text--orange-500 duration-200 rounded-full sm:flex 
+           justify-center right-3 bottom-0  hover:bg-white hover:text-black cursor-pointer"
       >
         <FaArrowRight />
       </div>
@@ -73,103 +74,78 @@ const page = () => {
   var settings = {
     dots: true,
     infinite: true,
-
-    // speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    // nextArrow: <NextArrow />,
+    // prevArrow: <PrevArrow />,
     autoplay: true,
     speed: 1000,
     autoplaySpeed: 4000,
-    // waitForAnimate: false
     cssEase: "ease-in-out",
   };
+
   return (
-    <div className=" min-h-screen">
-      <Shopheader />
-      <Container classname={" bg-slate-100/40"}>
-        <div className=" grid grid-cols-7 gap-x-3  ">
-          {/* The left side where you have all the product  */}
-          <div className="  col-span-7   sm:col-span-5 gap-y-2   rounded-lg flex flex-col">
+    <div className="min-h-screen">
+     <div className="">
+       <Shopheader />
+     </div>
+      <Container classname={"bg-slate-100/40"}>
+        <div className="grid grid-cols-7 gap-x-3">
+          <div className="col-span-7 sm:col-span-5 gap-y-2 rounded-lg flex flex-col">
             {shopProducts?.map((product, index) => (
               <div key={index} className="">
                 <ProudctCard product={product} />
               </div>
             ))}
           </div>
-          {/* The right side where you have all the product  */}
-          {/* The right side where you have all the product  */}
-          <div className="hidden sm:col-span-2 ring-1 ring-black rounded-sm  px-1 lg:flex flex-col ">
-            {/* Section of the hottest */}
-            {/* Section of the hottest */}
-            <div className=" ">
-              {/* The Titile of the Section */}
-              <div className="">
-                <div className=" flex justify-between font-bold items-center  mt-9 mx-1">
-                  <h1 className=" flex items-center text-2xl">
-                    <span className=" animate-pulse  fill-red-800 text-red-700 ">
-                      <FaGripfire fill=" red" />
-                    </span>
-                    Hottest
-                  </h1>
-                  <h1 className=" text-2xl">Today</h1>
-                </div>
+          <div className="  hidden  relative sm:col-span-2 ring-1 ring-black rounded-sm px-1 lg:flex flex-col">
+            <div className="">
+              <div className="flex justify-between font-bold items-center mt-9 mx-1">
+                <h1 className="flex items-center text-2xl">
+                  <span className="animate-pulse fill-red-800 text-red-700">
+                    <FaGripfire fill="red" />
+                  </span>
+                  Hottest
+                </h1>
+                <h1 className="text-2xl">Today</h1>
               </div>
-              {/* The Begingin of the hottest  */}
-              {/* <Hottest /> */}
-              <Slider
-                className=" relative   w-auto  pb-16  py-3 text-center mt-4"
-                {...settings}
-              >
-                {trendingproducts &&
-                  trendingproducts?.map((trending, index) => (
-                    <div className=" relative">
+            </div>
+            <Slider className=" " {...settings}>
+              {trendingproducts &&
+                trendingproducts?.map((trending, index) => (
+                  <div key={index} className="flex flex-col ">
+                    <Hottest items={trending} />
+                  </div>
+                ))}
+            </Slider>
+            {/*  The Popular section */}
+            <div className="">
+              <div className="flex justify-between font-bold items-center mt-9 mx-1">
+                <h1 className="flex items-center text-2xl">
+                  <span className="animate-pulse fill-red-800 text-red-700">
+                    <FaGripfire fill="red" />
+                  </span>
+                  Popular
+                </h1>
+                <h1 className="text-2xl">Today</h1>
+              </div>
+            </div>
+            <div>
+              <Slider className=" " {...settings}>
+                {popularProducts &&
+                  popularProducts?.map((trending, index) => (
+                    <div key={index} className="flex flex-col ">
                       <Hottest items={trending} />
                     </div>
                   ))}
               </Slider>
             </div>
-            {/* Section of the Popular Categories */}
-            {/* Section of the Popular Categories */}
-            <div className=" ">
-              {/* The Titile of the Section */}
-              <div className="">
-                <div className=" flex  gap-x-2 font-bold items-center  mt-9 mx-1">
-                  <h1 className=" flex items-center text-2xl">
-                    <span className=" animate-pulse  fill-red-800 text-red-700 ">
-                      <FaGripfire fill=" red" />
-                    </span>
-                    Popular
-                  </h1>
-                  <h1 className=" text-2xl">Categories</h1>
-                </div>
-              </div>
-              {/* The Begingin of the hottest  */}
-              {/* <Hottest /> */}
-              <Slider
-                className=" relative   w-auto  pb-16  py-3 text-center mt-4"
-                {...settings}
-              >
-                <div className=" relative">
-                  <Hottest />
-                </div>
-                <div className=" relative">
-                  <Hottest />
-                </div>
-                <div className=" relative">
-                  <Hottest />
-                </div>
-                <div className=" relative">
-                  <Hottest />
-                </div>
-              </Slider>
-            </div>
           </div>
+          {/* The  End Popular Section  */}
         </div>
       </Container>
     </div>
   );
 };
 
-export default page;
+export default Page;

@@ -30,12 +30,19 @@ const BannerText = ({ title }) => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <button className=" py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase">
+          <Link
+            className=" py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase"
+            href={"/shop"}
+          >
             Find out More
-          </button>
-          <button className=" py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase">
-            <Link href={"/shop"}>Shop Now</Link>
-          </button>
+          </Link>
+
+          <Link
+            className=" py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase"
+            href={"/shop"}
+          >
+            Shop Now
+          </Link>
         </motion.div>
       </Container>
     </div>
