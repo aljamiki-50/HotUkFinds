@@ -29,18 +29,19 @@ const Header = () => {
   useEffect(() => {
     // console.log(text);
 
-    if (query) {
+    // if (query) {
+    //   router.push(`/shop?search=${query}`);
+    // } else if (text === " ") {
+    //   router.push("/shop");
+    // } else {
+    //   router.push("");
+    // }
+    if (text || text !== " ") {
       router.push(`/shop?search=${query}`);
-    } else if (text === " ") {
+    } else if (text == " ") {
       router.push("/shop");
     } else {
-      router.push("");
-    }
-
-    if (text) {
-      router.push(`/shop?search=${query}`);
-    } else {
-      router.push("/shop");
+      router.push("/");
     }
   }, [query, router]);
 
