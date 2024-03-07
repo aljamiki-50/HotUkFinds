@@ -29,20 +29,19 @@ const Header = () => {
   useEffect(() => {
     // console.log(text);
 
-    if (text) {
+    if (query) {
       router.push(`/shop?search=${query}`);
     } else if (text === " ") {
       router.push("/shop");
     } else {
-      router.push("/");
+      router.push("");
     }
 
-    // if (text) {
-    //   router.push(`/shop?search=${query}`);
-    // }
-    // else  {
-    //   router.push("/shop");
-    // }
+    if (text) {
+      router.push(`/shop?search=${query}`);
+    } else {
+      router.push("/shop");
+    }
   }, [query, router]);
 
   return (
