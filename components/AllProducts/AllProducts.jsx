@@ -20,7 +20,7 @@ const AllProducts = () => {
     };
 
     fetchData();
-  }, []);
+  }, [products]);
 
   // const RecentProducts = await GetData();
 

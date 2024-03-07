@@ -20,8 +20,8 @@ const HeavyComponent = dynamic(() =>
 );
 // ../components/HeavyComponent
 
-// export const dynamic = "force-dynamic";
-export const cache = "force-cache";
+export const dynamic = "force-dynamic";
+// export const cache = "force-cache";
 
 const OneProudctPage = ({ params }) => {
   const [product, setProduct] = useState(null);
