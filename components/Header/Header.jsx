@@ -36,12 +36,20 @@ const Header = () => {
     // } else {
     //   router.push("");
     // }
-    if (text || text !== " ") {
+    // if (text ) {
+    //   router.push(`/shop?search=${query}`);
+    // } else if (text == "  ") {
+    //   router.push("/shop");
+    // } else {
+    //   router.push("/");
+    // }
+
+    if (text || text === " ") {
       router.push(`/shop?search=${query}`);
-    } else if (text == " ") {
-      router.push("/shop");
     } else {
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 60000);
     }
   }, [query, router]);
 
