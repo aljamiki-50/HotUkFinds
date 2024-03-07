@@ -17,7 +17,7 @@ import { useDebounce } from "use-debounce";
 const Header = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
   const pathname = usePathname();
-  const [text, setText] = useState(" ");
+  const [text, setText] = useState("");
   const router = useRouter();
 
   //  we usuing the debounce here we installed through npm i use-debounce --save so we not crushing or backEnd and make sure in our useeffect changed 
