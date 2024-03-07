@@ -24,11 +24,15 @@ const Header = () => {
 
   const [query] = useDebounce(text, 500);
 
+  // console.log(text);
+
   useEffect(() => {
     // console.log(text);
 
-    if (query) {
+    if (text) {
       router.push(`/shop?search=${query}`);
+    } else {
+      router.push("/shop"); // Handle the case when the query is empty
     }
   }, [query, router]);
 

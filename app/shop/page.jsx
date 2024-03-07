@@ -58,7 +58,7 @@ const Page = ({ searchParams }) => {
 
     fetchPopTrending(), fetchProductsAll();
     fetchtrending();
-  }, []); // Removed extra empty array here
+  }, [searchParams.search]); // Removed extra empty array here
 
   // console.log(popularProducts);
 
