@@ -20,26 +20,18 @@ const Header = () => {
   const [text, setText] = useState("");
   const router = useRouter();
 
-  //  we usuing the debounce here we installed through npm i use-debounce --save so we not crushing or backEnd and make sure in our useeffect changed 
+  //  we usuing the debounce here we installed through npm i use-debounce --save so we not crushing or backEnd and make sure in our useeffect changed
 
-  const [query] = useDebounce(text,500)
-
+  const [query] = useDebounce(text, 500);
 
   useEffect(() => {
     // console.log(text);
 
     if (!query) {
-
-      router.push("/")
-
-
-      
+      router.push("/");
     } else {
       router.push(`/shop?search=${query}`);
-      
     }
-
-   
   }, [query, router]);
 
   return (
@@ -80,7 +72,6 @@ const Header = () => {
           {/* user image  */}
           {session && (
             <Image
-              priority
               className=" rounded-full object-cover"
               width={60}
               height={60}

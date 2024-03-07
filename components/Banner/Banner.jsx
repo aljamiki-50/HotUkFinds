@@ -57,7 +57,6 @@ const Banner = () => {
             alt=" sale1"
             width={1920}
             height={1080}
-            priority
             objectPosition="center"
           />
           <div className="absolute inset-0 bg-black/70 z-20 opacity-50" />
@@ -70,7 +69,6 @@ const Banner = () => {
             alt=" sale1"
             width={1920}
             height={1080}
-            priority
             objectPosition="center"
           />
           <div className="absolute inset-0  bg-black/70 z-20  opacity-50" />

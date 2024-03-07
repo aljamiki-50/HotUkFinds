@@ -27,7 +27,6 @@ const ProudctCard = ({ product }) => {
             setishovered(false);
           }}
           className=" text-center  object-cover transition-all  ease-in-out flex items-center w-full h-full rounded-lg"
-          priority
           objectFit="fit"
           objectPosition="center"
           width={300}
