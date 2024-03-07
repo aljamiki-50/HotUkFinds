@@ -12,12 +12,9 @@ import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
 import { GetCertainProduct } from "@/Helpers/oneSlugPage/GetCertainProduct";
 import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
 import { LuExternalLink } from "react-icons/lu";
-import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
 
-const HeavyComponent = dynamic(() =>
-  import("@/components/lazyLoading/HeavyComponent")
-);
+
 // ../components/HeavyComponent
 
 export const dynamic = "force-dynamic";

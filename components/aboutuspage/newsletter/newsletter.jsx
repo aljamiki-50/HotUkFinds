@@ -23,7 +23,7 @@ const Subscribe = () => {
       return;
     }
   
-    console.log("here's your data: ", data);
+    // console.log("here's your data: ", data);
   };
 
   return (
