@@ -31,9 +31,18 @@ const Header = () => {
 
     if (text) {
       router.push(`/shop?search=${query}`);
+    } else if (text === " ") {
+      router.push("/shop");
     } else {
-      router.push("/shop"); // Handle the case when the query is empty
+      router.push("/");
     }
+
+    // if (text) {
+    //   router.push(`/shop?search=${query}`);
+    // }
+    // else  {
+    //   router.push("/shop");
+    // }
   }, [query, router]);
 
   return (
