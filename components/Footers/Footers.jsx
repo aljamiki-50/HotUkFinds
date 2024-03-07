@@ -16,16 +16,20 @@ import {
   FaApplePay,
   FaCcApplePay,
   FaGooglePay,
+  FaHome,
   FaPaypal,
+  FaRegNewspaper,
 } from "react-icons/fa";
 import { PiContactlessPaymentThin } from "react-icons/pi";
+import { FcAbout } from "react-icons/fc";
+import { IoMdContacts } from "react-icons/io";
 
 const Footers = () => {
   return (
     <div className="   w-full bg-darkText text-slate-100">
       <Container
         classname={
-          "grid grid-cols-1   justify-center  md:grid-cols-2 lg:grid-cols-4 gap-12"
+          "grid grid-cols-1   justify-center  md:grid-cols-2 lg:grid-cols-4 gap-10"
         }
       >
         <div className=" flex flex-col   gap-y-4">
@@ -96,11 +100,14 @@ const Footers = () => {
         </div>
         {/* 3rd coulmn which The Links */}
         <div className="">
-          <p className="  font-semibold text-lg"> Talk To Us Via</p>
-          <ul className=" font-medium mt-2 flex flex-col gap-y-2 text-base">
+          <p className="  font-semibold text-3xl  bg-gradient-to-r from-blue-400/45 to-purple-600/40 "> Talk To Us Via</p>
+          <ul className=" font-medium mt-6 flex flex-col gap-y-5 text-base">
             <Link href={"/"}>
               {" "}
-              <li className=" hover:text-orange-500 cursor-pointer duration-200">
+              <li className=" flex items-center gap-x-2 hover:text-orange-500 cursor-pointer duration-200">
+                <span>
+                  <FaHome />
+                </span>{" "}
                 Home
               </li>
             </Link>
@@ -111,18 +118,27 @@ const Footers = () => {
             </Link> */}
 
             <Link href={"/aboutus"}>
-              <li className=" hover:text-orange-500 cursor-pointer duration-200">
+              <li className=" flex items-center gap-x-2  hover:text-orange-500 cursor-pointer duration-200">
+                <span>
+                  <FcAbout />
+                </span>
                 ABOUT
               </li>
             </Link>
             <Link href={"/NewsLetter"}>
-              <li className=" hover:text-orange-500 cursor-pointer duration-200">
+              <li className="  flex items-center gap-x-2 hover:text-orange-500 cursor-pointer duration-200">
+                <span>
+                  <FaRegNewspaper />
+                </span>
                 NEWS LETTER
               </li>
             </Link>
 
             <Link href={"/Contact"}>
-              <li className=" hover:text-orange-500 cursor-pointer duration-200">
+              <li className="  flex items-center gap-x-2 hover:text-orange-500 cursor-pointer duration-200">
+                <span>
+                  <IoMdContacts />
+                </span>
                 CONTACT
               </li>
             </Link>
@@ -130,8 +146,8 @@ const Footers = () => {
         </div>
         {/* 4th coulmn which is paymern */}
         <div className=" flex flex-col gap-y-6">
-          <p className=" font-semibold text-lg mb-2">
-            Pay Us With trusted Services{" "}
+          <p className=" font-semibold text-lg mb-2   lg:text-2xl  bg-gradient-to-r from-blue-400/45 to-purple-600/40 ">
+            Pay Us With trusted Services
           </p>
           <div className=" flex  scale-120 text-left  justify-around">
             <span>
@@ -152,44 +168,48 @@ const Footers = () => {
             </span>
             <span>
               {" "}
-              <PiContactlessPaymentThin size={24} className=" fill-violet-400" />
+              <PiContactlessPaymentThin
+                size={24}
+                className=" fill-violet-400"
+              />
             </span>
           </div>
-            {/* 5th coulmn which is paymern */}
+          {/* 5th coulmn which is paymern */}
 
           <div className="  ml-3 flex flex-col gap-y-3">
-          <p className=" font-semibold text-lg mb-2">Find us In Social Media :  </p>
-          <div className=" flex items-center gap-x-4">
-            <span className="socialSpan">
-              <BsYoutube size={24} />
-            </span>
-            <span className="socialSpan">
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href={
-                  "https://www.instagram.com/uksaverz?igsh=OHBxa2J5ZGQwb21t&utm_source=qr"
-                }
-              >
-                <BsInstagram
-                  fill="#000"
-                  size={24}
-                  className=" fill-[#000000] "
-                />
-              </Link>
-            </span>
+            <p className=" font-semibold text-lg mb-2">
+              Find us In Social Media :{" "}
+            </p>
+            <div className=" flex items-center gap-x-4">
+              <span className="socialSpan">
+                <BsYoutube size={24} />
+              </span>
+              <span className="socialSpan">
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={
+                    "https://www.instagram.com/uksaverz?igsh=OHBxa2J5ZGQwb21t&utm_source=qr"
+                  }
+                >
+                  <BsInstagram
+                    fill="#000"
+                    size={24}
+                    className=" fill-[#000000] "
+                  />
+                </Link>
+              </span>
 
-            <span className="socialSpan">
-              <BsFacebook size={24} />
-            </span>
-            <span className="socialSpan">
-              <BsReddit size={24} />
-            </span>
+              <span className="socialSpan">
+                <BsFacebook size={24} />
+              </span>
+              <span className="socialSpan">
+                <BsReddit size={24} />
+              </span>
+            </div>
+            {/* <Image src={payment} className=" w-full h-10" objectFit="cover"  alt=" hey how you d" /> */}
           </div>
-          {/* <Image src={payment} className=" w-full h-10" objectFit="cover"  alt=" hey how you d" /> */}
         </div>
-        </div>
-       
       </Container>
     </div>
   );
