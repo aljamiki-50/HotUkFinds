@@ -5,6 +5,7 @@ const nextConfig = {
         "img.freepik.com",
         "avatars.githubusercontent.com",
         "lh3.googleusercontent.com",
+        "hot-uk-finds.vercel.app/",
       ],
       remotePatterns: [
         {

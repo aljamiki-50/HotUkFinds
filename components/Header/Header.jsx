@@ -27,11 +27,11 @@ const Header = () => {
   useEffect(() => {
     // console.log(text);
 
-    if (!query) {
-      router.push("/");
-    } else {
-      router.push(`/shop?search=${query}`);
-    }
+    // if (!query) {
+    //   router.push("/");
+    // } else {
+    //   router.push(`/shop?search=${query}`);
+    // }
   }, [query, router]);
 
   return (
