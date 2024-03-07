@@ -27,12 +27,12 @@ const Header = () => {
   useEffect(() => {
     // console.log(text);
 
-    if (!query) {
+    if (query) {
       router.push("/");
     } else {
       router.push(`/shop?search=${query}`);
     }
-  }, [query, router]);
+  }, [query]);
 
   return (
     <div>
