@@ -22,23 +22,24 @@ const ImagesGallery = ({ images }) => {
   try {
     return (
       <div className=" grid sm:grid-cols-4 gap-4 lg:grid-cols-5 items-center">
-        <div className=" order-last  grid-cols-5   sm:flex gap-4 sm:order-none sm:flex-col">
-          {images?.slice(0, 4)?.map((image, index) => (
-            <div
-              key={index}
-              className=" overflow-hidden rounded-lg ring-[.5px] ring-black bg-slate-100"
-            >
-              <Image
-                onClick={() => handleBigImage(image)}
-                src={urlForImage(image || image?.asset?._ref)}
-                // src={image}
-                width={500}
-                height={500}
-                className="  object-contain   cursor-pointer"
-              />
-            </div>
-          ))}
+        <div className="order-last grid-cols-5 sm:flex gap-4 sm:order-none sm:flex-col">
+          {Array.isArray(images) &&
+            images.slice(0, 4).map((image, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg ring-[.5px] ring-black bg-slate-100"
+              >
+                <Image
+                  onClick={() => handleBigImage(image)}
+                  src={urlForImage(image || image?.asset?._ref)}
+                  width={500}
+                  height={500}
+                  className="object-contain cursor-pointer"
+                />
+              </div>
+            ))}
         </div>
+
         <div className=" relative      antialiased duration-100 rounded-lg w-full lg:h-[90%]  bg-slate-100 lg:col-span-4">
           <Image
             src={urlForImage(bigImage)}

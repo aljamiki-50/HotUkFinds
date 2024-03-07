@@ -100,43 +100,29 @@ const ProudctPage = ({ params }) => {
                 <span className=" text-sm"> 2-4 days shipping</span>
               </div>
               <div className=" flex gap-2.5">
-                {/* <AddToBag
-                currency={"USD"}
-                image={Product.images[0]}
-                description={Product.description}
-                name={Product.name}
-                price={Product.price}
-                key={Product._id}
-                price_id={Product.price_id}
-              /> */}
-                {/* <CheckOutNow
-                currency={"USD"}
-                image={Product.images[0]}
-                description={Product.description}
-                name={Product.name}
-                price={Product.price}
-                key={Product._id}
-                price_id={Product.price_id}
-                className="bg-yellow-100"
-                variant={"secondary"}
-              /> */}
-
                 <button className=" w-full bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100   hover:bg-orange-800 hover:text-white duration-200">
                   Check out now
                 </button>
               </div>
               <p className=" mt-5 text-base text-gray-500 tracking-wide line-clamp-6">
-                {"Product.description"} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam suscipit quam blanditiis harum sunt esse ipsa ea sequi, quo similique. Architecto natus quisquam pariatur sed fugit aperiam cumque unde doloremque!
+                {"Product.description"} Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Veniam suscipit quam blanditiis harum sunt
+                esse ipsa ea sequi, quo similique. Architecto natus quisquam
+                pariatur sed fugit aperiam cumque unde doloremque!
               </p>
             </div>
           </div>
         </div>
         {/* The Trending Products Parts Here  */}
         <div className=" flex flex-col gap-y-2">
-          <h1 className=" text-6xl py-2 font-bold antialiased"> sm:flex-col 
-            Trending Products
+          <h1 className=" text-6xl py-2 font-bold antialiased">
+            {" "}
+            sm:flex-col Trending Products
           </h1>
-          <Slider className="  flex  flex-col sm:flex-row   gap-x-10 justify-around  " {...settings}>
+          <Slider
+            className="  flex  flex-col sm:flex-row   gap-x-10 justify-around  "
+            {...settings}
+          >
             <div className=" ">
               <div className="  ml-2 ">
                 {" "}

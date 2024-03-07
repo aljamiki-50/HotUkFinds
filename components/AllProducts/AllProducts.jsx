@@ -22,9 +22,6 @@ const AllProducts = () => {
     fetchData();
   }, [products]);
 
-  // const RecentProducts = await GetData();
-
-  // console.log("here", RecentProducts);
   return (
     <Container
       classname={
