@@ -28,11 +28,9 @@ const Header = () => {
     // console.log(text);
 
     if (query) {
-      router.push("/");
-    } else {
       router.push(`/shop?search=${query}`);
     }
-  }, [query]);
+  }, [query, router]);
 
   return (
     <div>
