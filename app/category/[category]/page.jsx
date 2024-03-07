@@ -15,7 +15,7 @@ const page = ({ params }) => {
   const router = useRouter();
   const pathname = usePathname()
 
-  console.log(pathname);
+  // console.log(pathname);
   useEffect(() => {
     const fetchData = async () => {
       const data = await GetCategoryProduct(params?.category);

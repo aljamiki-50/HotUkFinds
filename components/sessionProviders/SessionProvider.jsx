@@ -1,7 +1,9 @@
-"use client";
 
-// import { makeStore, persistor, store } from "@/ReduxStore/Store";
+
+
+"use client";
 import { SessionProvider } from "next-auth/react";
+import SmoothScroll from "../SmothScroll/smoothscroller";
 // import { Provider } from "react-redux";
 // import { PersistGate } from "redux-persist/integration/react";
 
@@ -10,7 +12,13 @@ import { SessionProvider } from "next-auth/react";
 // import { makeStore } from '../lib/store'
 
 const Session = ({ children }) => {
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      <SmoothScroll>
+        {children}
+      </SmoothScroll>
+    </SessionProvider>
+  );
 };
 
 export default Session;

@@ -104,11 +104,11 @@ const Footers = () => {
                 Home
               </li>
             </Link>
-            <Link href={"/Cart"}>
+            {/* <Link href={"/Cart"}>
               <li className=" hover:text-orange-500 cursor-pointer duration-200">
                 CART
               </li>
-            </Link>
+            </Link> */}
 
             <Link href={"/aboutus"}>
               <li className=" hover:text-orange-500 cursor-pointer duration-200">

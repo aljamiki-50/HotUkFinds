@@ -12,6 +12,13 @@ import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
 import { GetCertainProduct } from "@/Helpers/oneSlugPage/GetCertainProduct";
 import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
 import { LuExternalLink } from "react-icons/lu";
+import dynamic from "next/dynamic";
+import React, { Suspense } from "react";
+
+const HeavyComponent = dynamic(() =>
+  import("@/components/lazyLoading/HeavyComponent")
+);
+// ../components/HeavyComponent
 
 // export const dynamic = "force-dynamic";
 export const cache = "force-cache";
@@ -100,8 +107,10 @@ const OneProudctPage = ({ params }) => {
             <ImagesGallery images={product?.images} />
             <div className="md:py-8">
               <div className="  md:mb-3 mb-2">
-                <span className=" uppercase font-semibold tracking-wide mb-0.5  inline-block text-gray-500">
-                  {product?.categoryName}
+                <span className=" p-3 bg-black hover:bg-black/80    rounded-md uppercase font-semibold tracking-wide mb-0.5  inline-block text-gray-100">
+                  <Link href={`/category/${product?.categoryName}`}>
+                    {product?.categoryName}
+                  </Link>
                 </span>
                 <h2 className=" text-2xl font-bold text-gray-800 lg:text-3xl">
                   {product?.slug}
@@ -147,7 +156,7 @@ const OneProudctPage = ({ params }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     href={product.affiliateLink}
-                       className="w-full text-center flex font-semibold  justify-center bg-orange-600 px-4 py-3 items-center gap-x-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
+                    className="w-full text-center flex  justify-center bg-orange-600 px-4 py-3 items-center gap-x-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
                   >
                     Buy now <LuExternalLink />
                   </Link>

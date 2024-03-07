@@ -14,7 +14,7 @@ module.exports = {
         lightText: "#a5a5a5",
       },
       backgroundImage: {
-        "main-bg": "url('/bg-image.jpeg')",
+        // "main-bg": "url('/bg-image.jpeg')",
       },
     },
   },

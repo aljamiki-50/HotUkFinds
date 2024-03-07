@@ -60,6 +60,7 @@ const Banner = () => {
             priority
             objectPosition="center"
           />
+          <div className="absolute inset-0 bg-black/70 z-20 opacity-50" />
           <BannerText title={"Picks for good winter"} />
         </div>
         <div className=" relative w-full h-full object-center">
@@ -72,6 +73,8 @@ const Banner = () => {
             priority
             objectPosition="center"
           />
+          <div className="absolute inset-0  bg-black/70 z-20  opacity-50" />
+
           <BannerText title={"Picks for good winter"} />
         </div>
         <div className="relative w-full h-full object-center">
@@ -83,6 +86,8 @@ const Banner = () => {
             height={1080}
             objectPosition="center"
           />
+          <div className="absolute inset-0  bg-black/70 z-20  opacity-50" />
+
           <BannerText title={"Picks for good winter"} />
         </div>
       </Slider>

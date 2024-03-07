@@ -39,6 +39,7 @@ const ProductCard = ({ items }) => {
           >
             <Image
               src={initialImage}
+              loading="lazy"
               width={500}
               height={500}
               alt=" picture for"
@@ -88,7 +89,6 @@ const ProductCard = ({ items }) => {
               {/* Start icon */}
               <div className=" flex items-center gap-x-1">{startArray}</div>
             </div>{" "}
-            objectPosition
           </div>
         </div>
       </Link>

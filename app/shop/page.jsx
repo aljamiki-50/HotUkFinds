@@ -14,15 +14,34 @@ import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
 import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
 import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
 
-const Page = () => {
+const Page = ({ searchParams }) => {
   const [shopProducts, setShopProducts] = useState([]);
   const [popularProducts, setPopularProducts] = useState([]);
   const [trendingproducts, setTrendingproducts] = useState([]);
 
+  // console.log(searchParams.search);
+
   useEffect(() => {
     const fetchProductsAll = async () => {
-      const Fetchalldata = await GetShopData();
-      setShopProducts(Fetchalldata);
+      try {
+        const Fetchalldata = await GetShopData(); // Assuming this function retrieves all products
+        let filteredProducts = Fetchalldata;
+
+        // If searchParams.search is provided, filter the products based on it
+        if (searchParams.search) {
+          filteredProducts = Fetchalldata.filter((product) =>
+            product.name
+              .toLowerCase()
+              .includes(searchParams.search.toLowerCase())
+          );
+          setShopProducts(filteredProducts);
+        } else {
+          setShopProducts(Fetchalldata);
+        }
+      } catch (error) {
+        console.error("Error fetching and filtering shop data:", error);
+        setShopProducts([]);
+      }
     };
 
     const fetchtrending = async () => {
@@ -86,9 +105,9 @@ const Page = () => {
 
   return (
     <div className="min-h-screen">
-     <div className="">
-       <Shopheader />
-     </div>
+      <div className="">
+        <Shopheader />
+      </div>
       <Container classname={"bg-slate-100/40"}>
         <div className="grid grid-cols-7 gap-x-3">
           <div className="col-span-7 sm:col-span-5 gap-y-2 rounded-lg flex flex-col">

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
 import Image from "next/image";
@@ -11,11 +11,36 @@ import { FiLogOut } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Shopheader from "../shop/Shopheader";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useDebounce } from "use-debounce";
 
 const Header = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
   const pathname = usePathname();
+  const [text, setText] = useState(" ");
+  const router = useRouter();
+
+  //  we usuing the debounce here we installed through npm i use-debounce --save so we not crushing or backEnd and make sure in our useeffect changed 
+
+  const [query] = useDebounce(text,500)
+
+
+  useEffect(() => {
+    // console.log(text);
+
+    if (!query) {
+
+      router.push("/")
+
+
+      
+    } else {
+      router.push(`/shop?search=${query}`);
+      
+    }
+
+   
+  }, [query, router]);
 
   return (
     <div>
@@ -31,6 +56,10 @@ const Header = () => {
           <div className="w-full group: bg-white hidden md:flex items-center gap-x-1 border-[1px] border-lightText/50 rounded-full px-4 py-1.5 focus-within:border-orange-600 group">
             <FaSearch className="  group-focus-within:text-darkText duration-200 text-gray-500" />
             <input
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
               type="text"
               placeholder="Search for the product"
               className=" placeholder:text-sm flex-1 outline-none active:ring-1"
