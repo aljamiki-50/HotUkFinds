@@ -1,28 +1,33 @@
 "use client";
 import { useState } from "react";
 import Head from "next/head";
+import { useSession } from "next-auth/react";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
+  const { data: session, status, ClientSafeProvider } = useSession();
+  const sessionEmail = session?.user?.email;
+
+  console.log("your session is ", session);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const res = await fetch("/api/mailchimp", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email: email || sessionEmail }),
     });
-  
+
     const data = await res.json();
-  
+
     if (data.error) {
       console.log(data.error);
       return;
     }
-  
+
     // console.log("here's your data: ", data);
   };
 

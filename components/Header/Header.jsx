@@ -27,22 +27,7 @@ const Header = () => {
   // console.log(text);
 
   useEffect(() => {
-    // console.log(text);
-
-    // if (query) {
-    //   router.push(`/shop?search=${query}`);
-    // } else if (text === " ") {
-    //   router.push("/shop");
-    // } else {
-    //   router.push("");
-    // }
-    // if (text ) {
-    //   router.push(`/shop?search=${query}`);
-    // } else if (text == "  ") {
-    //   router.push("/shop");
-    // } else {
-    //   router.push("/");
-    // }
+    
 
     if (text || text === " ") {
       router.push(`/shop?search=${query}`);

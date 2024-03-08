@@ -100,7 +100,7 @@ const Footers = () => {
         </div>
         {/* 3rd coulmn which The Links */}
         <div className="">
-          <p className="  font-semibold text-3xl  bg-gradient-to-r from-blue-400/45 to-purple-600/40 "> Talk To Us Via</p>
+          <p className="  font-semibold text-3xl   "> Talk To Us Via</p>
           <ul className=" font-medium mt-6 flex flex-col gap-y-5 text-base">
             <Link href={"/"}>
               {" "}
@@ -146,7 +146,7 @@ const Footers = () => {
         </div>
         {/* 4th coulmn which is paymern */}
         <div className=" flex flex-col gap-y-6">
-          <p className=" font-semibold text-lg mb-2   lg:text-2xl  bg-gradient-to-r from-blue-400/45 to-purple-600/40 ">
+          <p className=" font-semibold text-lg mb-2   lg:text-2xl   ">
             Pay Us With trusted Services
           </p>
           <div className=" flex  scale-120 text-left  justify-around">
