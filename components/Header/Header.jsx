@@ -16,6 +16,10 @@ import { useDebounce } from "use-debounce";
 
 const Header = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
+  const sessionEmail = session?.user?.email;
+
+  console.log(sessionEmail)
+
   const pathname = usePathname();
   const [text, setText] = useState("");
   const router = useRouter();
@@ -27,7 +31,34 @@ const Header = () => {
   // console.log(text);
 
   useEffect(() => {
-    
+    const handleSubmit = async () => {
+      try {
+        const res = await fetch("/api/mailchimp", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ email: sessionEmail }),
+        });
+
+        const data = await res.json();
+
+        if (data.error) {
+          // Handle error (e.g., display error message to user)
+          console.error(data.error);
+        } else {
+          // Email submitted successfully
+          console.log("User Logged successfully");
+        }
+      } catch (error) {
+        // Handle network errors or other unexpected errors
+        console.error("Error submitting email:", error);
+      }
+    };
+
+    if (sessionEmail) {
+      handleSubmit();
+    }
 
     if (text || text === " ") {
       router.push(`/shop?search=${query}`);
@@ -36,7 +67,7 @@ const Header = () => {
         router.push("/");
       }, 60000);
     }
-  }, [query, router]);
+  }, [query, router, sessionEmail]);
 
   return (
     <div>

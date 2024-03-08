@@ -8,7 +8,7 @@ const Subscribe = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
   const sessionEmail = session?.user?.email;
 
-  console.log("your session is ", session);
+  // console.log("your session is ", session);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
