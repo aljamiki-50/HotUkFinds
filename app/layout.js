@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
       <>
       <Head>
         <meta name="google-site-verification" content="coKkiJhG8EmTc2KhZf2O3vBpvGdtoEm40jJgGJihVaA" />
+        
       </Head>
         <body
           className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
