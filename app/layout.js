@@ -23,7 +23,7 @@ const Urbanistt = Urbanist({ subsets: ["latin"] });
 // };
 
 export const metadata = {
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   title: {
     template: "Shopping Mart",
     default: "Shopping Mart A Place For All",
