@@ -18,8 +18,6 @@ const Header = () => {
   const { data: session, status, ClientSafeProvider } = useSession();
   const sessionEmail = session?.user?.email;
 
-  console.log(sessionEmail)
-
   const pathname = usePathname();
   const [text, setText] = useState("");
   const router = useRouter();
@@ -48,7 +46,7 @@ const Header = () => {
           console.error(data.error);
         } else {
           // Email submitted successfully
-          console.log("User Logged successfully");
+          // console.log("User Logged successfully");
         }
       } catch (error) {
         // Handle network errors or other unexpected errors
@@ -62,6 +60,8 @@ const Header = () => {
 
     if (text || text === " ") {
       router.push(`/shop?search=${query}`);
+    } else if (!process.env.NODE_ENV === "development") {
+      router.push("/");
     } else {
       setTimeout(() => {
         router.push("/");

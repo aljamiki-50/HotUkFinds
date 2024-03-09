@@ -37,12 +37,15 @@ export default function RootLayout({ children }) {
         className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
       >
         <Session>
-          {/* <SmoothScroll> */}
           <Header />
-          {/* {pathname === "/category/home" && <Shopheader />} */}
           {children}
-          <Footers />
-          {/* </SmoothScroll> */}
+          {!process.env.NODE_ENV === "development" &&
+          
+          (
+            <Footers />
+
+          )}
+        
         </Session>
       </body>
     </html>
