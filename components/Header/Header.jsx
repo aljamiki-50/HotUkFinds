@@ -61,7 +61,8 @@ const Header = () => {
     if (text || text === " ") {
       router.push(`/shop?search=${query}`);
     } else if (!process.env.NODE_ENV === "development") {
-      router.push("/");
+
+      
     } else {
       setTimeout(() => {
         router.push("/");
