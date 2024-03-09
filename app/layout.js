@@ -7,6 +7,7 @@ import Footers from "@/components/Footers/Footers";
 import Session from "@/components/sessionProviders/SessionProvider";
 import Shopheader from "@/components/shop/Shopheader";
 import SmoothScroll from "@/components/SmothScroll/smoothscroller";
+import Head from "next/head";
 
 const Urbanistt = Urbanist({ subsets: ["latin"] });
 
@@ -23,18 +24,23 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body
-        className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
-      >
-        <Session>
-          {/* <SmoothScroll> */}
+      <>
+      <Head>
+        <meta name="google-site-verification" content="coKkiJhG8EmTc2KhZf2O3vBpvGdtoEm40jJgGJihVaA" />
+      </Head>
+        <body
+          className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
+        >
+          <Session>
+            {/* <SmoothScroll> */}
             <Header />
             {/* {pathname === "/category/home" && <Shopheader />} */}
             {children}
             <Footers />
-          {/* </SmoothScroll> */}
-        </Session>
-      </body>
+            {/* </SmoothScroll> */}
+          </Session>
+        </body>
+      </>
     </html>
   );
 }
