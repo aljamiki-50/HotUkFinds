@@ -60,9 +60,9 @@ const Header = () => {
 
     if (text || text === " ") {
       router.push(`/shop?search=${query}`);
-    } else if (!process.env.NODE_ENV === "development") {
+    } else if (process.env.NODE_ENV === "development") {
 
-      
+
     } else {
       setTimeout(() => {
         router.push("/");
