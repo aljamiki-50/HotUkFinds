@@ -2,16 +2,44 @@
 import { useState } from "react";
 import Head from "next/head";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
   const { data: session, status, ClientSafeProvider } = useSession();
   const sessionEmail = session?.user?.email;
+  const router = useRouter();
 
   // console.log("your session is ", session);
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const res = await fetch("/api/mailchimp", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({ email: email || sessionEmail }),
+  //   });
+
+  //   const data = await res.json();
+
+  //   if (data.error) {
+  //     console.log(data.error);
+  //     return;
+  //   }
+
+  //   // console.log("here's your data: ", data);
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate email input
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
     const res = await fetch("/api/mailchimp", {
       method: "POST",
@@ -28,7 +56,13 @@ const Subscribe = () => {
       return;
     }
 
-    // console.log("here's your data: ", data);
+    router.push("/"); // Change "/success" to the desired success page URL
+  };
+
+  const validateEmail = (email) => {
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   return (
