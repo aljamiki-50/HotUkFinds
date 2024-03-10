@@ -14,7 +14,6 @@ import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
 import { LuExternalLink } from "react-icons/lu";
 import React, { Suspense } from "react";
 
-
 // ../components/HeavyComponent
 
 export const dynamic = "force-dynamic";
@@ -124,15 +123,20 @@ const OneProudctPage = ({ params }) => {
               </div>
               <div className=" mb-4">
                 <div className=" flex items-end  gap-2">
-                  <span className="  text-xl font-bold text-gray-800 md:text-2xl">
-                    ${product?.price}
+                  <span className="  text-xl font-bold text-green-800 md:text-2xl">
+                    £ {""}{product?.price}
                   </span>
-                  <span className="   mb-0.5 text-red-500   line-through">
-                    ${product?.oldprice}
+
+                  <span className="mb-0.5 text-red-500 line-through">
+                    {product?.oldprice && ( 
+                      <>
+                       £{product?.oldprice}
+                      </>
+                    )}
                   </span>
                 </div>
                 <span className=" text-sm text-gray-500">
-                  Incl Vats Plus Shipping{" "}
+                  Incl Vats Plus Shipping
                 </span>
               </div>
               <div className=" mb-6 flex items-center gap-2 text-gray-500">
@@ -141,14 +145,6 @@ const OneProudctPage = ({ params }) => {
               </div>
               <div className=" flex gap-2.5">
                 {product && product.affiliateLink && (
-                  // <Link
-                  //   href={product.affiliateLink}
-                  //   target="_blank"
-                  //   rel="noopener noreferrer"
-                  //   className="w-full text-center bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
-                  // >
-                  //   Buy Now
-                  // </Link>
                   <Link
                     target="_blank"
                     rel="noopener noreferrer"
