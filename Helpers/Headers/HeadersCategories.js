@@ -13,13 +13,4 @@ export async function GetCategroies() {
   return data;
 }
 
-//   name,
-// images,
-//   price,
-//   oldprice,
-//   description,
-//   "slug":slug.current,
-// price_id,
-// ratings,
-// affiliateLink,
-//   "Trending":trendingProduct->name,
+
