@@ -1,16 +1,26 @@
+import Contact from "@/components/contactpage/Contatcs/contact";
+import MainContact from "@/components/contactpage/Contatcs/mainContact";
+import Head from "next/head";
 
-"use client"
-import Contact from '@/components/contactpage/contact'
-import React from 'react'
+export const metadata = {
+  robots: { index: true, follow: true },
+  title: " ✅ Contact",
+  // in case for absoulte Declaration at the tab it self
+  // title:{
+  //   absoulte: " ✅ AboutUs",
+  // },
+
+  ogImage: "/opengraph-image.jpg",
+};
 
 const page = () => {
   return (
-    <div>
+    <>
+      <div>
+        <MainContact />
+      </div>
+    </>
+  );
+};
 
-        <Contact />
-      
-    </div>
-  )
-}
-
-export default page
+export default page;

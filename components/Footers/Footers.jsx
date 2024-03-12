@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import {
@@ -23,10 +24,21 @@ import {
 import { PiContactlessPaymentThin } from "react-icons/pi";
 import { FcAbout } from "react-icons/fc";
 import { IoMdContacts } from "react-icons/io";
+import { usePathname } from "next/navigation";
+
+// structure/product
 
 const Footers = () => {
+  const pathname = usePathname();
+
   return (
-    <div className="   w-full bg-darkText text-slate-100">
+    <div
+      className={`${
+        pathname.startsWith("/studio/structure") ? "hidden" : "block"
+      }  
+      w-full bg-darkText text-slate-100`}
+      // "   w-full bg-darkText text-slate-100"
+    >
       <Container
         classname={
           "grid grid-cols-1   justify-center  md:grid-cols-2 lg:grid-cols-4 gap-10"

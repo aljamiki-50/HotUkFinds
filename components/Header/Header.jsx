@@ -66,7 +66,7 @@ const Header = () => {
     } else {
       setTimeout(() => {
         router.push("/");
-      }, 60000);
+      }, 1200000);
     }
   }, [query, router, sessionEmail]);
 

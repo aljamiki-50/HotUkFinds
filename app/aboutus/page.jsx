@@ -2,6 +2,17 @@
 
 import Head from "next/head";
 
+export const metadata = {
+  robots: { index: true, follow: true },
+  title: " ✅ AboutUs",
+  // in case for absoulte Declaration at the tab it self 
+  // title:{
+  //   absoulte: " ✅ AboutUs",
+  // },
+ 
+  ogImage: "/opengraph-image.jpg",
+};
+
 const AboutUs = () => {
   return (
     <>
