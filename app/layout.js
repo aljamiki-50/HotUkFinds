@@ -39,13 +39,7 @@ export default function RootLayout({ children }) {
         <Session>
           <Header />
           {children}
-          {!process.env.NODE_ENV === "development" &&
-          
-          (
-            <Footers />
-
-          )}
-        
+          {!process.env.NODE_ENV === "development" && <Footers />}
         </Session>
       </body>
     </html>

@@ -57,32 +57,32 @@ const Banner = () => {
             alt=" sale1"
             width={1920}
             height={1080}
-            objectPosition="center"
+            objectPosition="cover"
           />
           <div className="absolute inset-0 bg-black/70 z-20 opacity-50" />
           <BannerText title={"Picks for good winter"} />
         </div>
-        <div className=" relative w-full h-full object-center">
+        <div className=" relative w-full h-full object-cover">
           <Image
             // layout="fill"
             src={sale2}
             alt=" sale1"
             width={1920}
             height={1080}
-            objectPosition="center"
+            objectPosition="cover"
           />
           <div className="absolute inset-0  bg-black/70 z-20  opacity-50" />
 
           <BannerText title={"Picks for good winter"} />
         </div>
-        <div className="relative w-full h-full object-center">
+        <div className="relative w-full h-full object-cover">
           <Image
             // layout="fill"
             src={sale3}
             alt=" sale1"
             width={1920}
             height={1080}
-            objectPosition="center"
+            objectPosition="cover"
           />
           <div className="absolute inset-0  bg-black/70 z-20  opacity-50" />
 
