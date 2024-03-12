@@ -23,7 +23,7 @@ const page = ({ params }) => {
     };
 
     fetchData();
-  }, []);
+  }, [params?.category]);
   //   console.log(products);
   return (
     <Container
