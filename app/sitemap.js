@@ -6,20 +6,21 @@ export default async function sitemap() {
   const postentries = products.map((product) => {
     return {
       url: `${process.env.NEXTAUTH_URL}category/${encodeURIComponent(product?.categoryName)}`,
+      url2: `${process.env.NEXTAUTH_URL}category/${encodeURIComponent(product?.slug)}`,
       lastmod: product?.lastmod,
       changefreq: "daily",
       priority: 0.7,
     };
   });
 
-  const another = products.map((oneproduct) => {
-    return {
-      url: `${process.env.NEXTAUTH_URL}oneproduct/${encodeURIComponent(oneproduct?.slug)}`,
-      lastmod: oneproduct?.lastmod,
-      changefreq: "daily",
-      priority: 0.7,
-    };
-  });
+  // const another = products.map((oneproduct) => {
+  //   return {
+  //     url: `${process.env.NEXTAUTH_URL}oneproduct/${encodeURIComponent(oneproduct?.slug)}`,
+  //     lastmod: oneproduct?.lastmod,
+  //     changefreq: "daily",
+  //     priority: 0.7,
+  //   };
+  // });
 
   const sitemap = [
     {
@@ -41,7 +42,7 @@ export default async function sitemap() {
       priority: 0.8,
     },
     ...postentries,
-    ...another,
+    // ...another,
   ];
 
   return sitemap;
