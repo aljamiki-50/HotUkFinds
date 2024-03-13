@@ -13,14 +13,14 @@ export default async function sitemap() {
     };
   });
 
-  // const another = products.map((oneproduct) => {
-  //   return {
-  //     url: `${process.env.NEXTAUTH_URL}oneproduct/${encodeURIComponent(oneproduct?.slug)}`,
-  //     lastmod: oneproduct?.lastmod,
-  //     changefreq: "daily",
-  //     priority: 0.7,
-  //   };
-  // });
+  const another = products.map((oneproduct) => {
+    return {
+      url: `${process.env.NEXTAUTH_URL}oneproduct/${encodeURIComponent(oneproduct?.slug)}`,
+      lastmod: oneproduct?.lastmod,
+      changefreq: "daily",
+      priority: 0.7,
+    };
+  });
 
   const sitemap = [
     {
@@ -42,7 +42,7 @@ export default async function sitemap() {
       priority: 0.8,
     },
     ...postentries,
-    // ...another,
+    ...another,
   ];
 
   return sitemap;
