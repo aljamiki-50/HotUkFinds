@@ -6,7 +6,7 @@ import { FaShippingFast } from "react-icons/fa";
 import FormatedAmounts from "@/components/FormatedAmounts/FormatedAmounts";
 import { LuExternalLink } from "react-icons/lu";
 import Link from "next/link";
-import OneProduct from "@/components/api/product/OneProduct";
+// import OneProduct from "@/components/api/product/OneProduct";
 import { GoLinkExternal } from "react-icons/go";
 import { CiRead } from "react-icons/ci";
 

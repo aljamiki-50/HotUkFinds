@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const Urbanistt = Urbanist({ subsets: ["latin"] });
 
-console.log("here is it  ",process.env.NODE_ENV)
+// console.log("here is it  ",process.env.NODE_ENV)
 
 export const metadata = {
   robots: { index: true, follow: true },
