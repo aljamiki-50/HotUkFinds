@@ -5,8 +5,9 @@ export default async function sitemap() {
 
   const postentries = products.map((product) => {
     return {
-      url: `${process.env.NEXTAUTH_URL}category/${encodeURIComponent(product?.categoryName)}`,
-      url2: `${process.env.NEXTAUTH_URL}category/${encodeURIComponent(product?.slug)}`,
+      // url: `${process.env.NEXTAUTH_URL}category/${encodeURIComponent(product?.categoryName)}`,
+      url: `${process.env.NEXTAUTH_URL}category/${product?.categoryName}`,
+      url2: `${process.env.NEXTAUTH_URL}category/${product?.slug}`,
       lastmod: product?.lastmod,
       changefreq: "daily",
       priority: 0.7,
@@ -18,7 +19,7 @@ export default async function sitemap() {
       url: `${process.env.NEXTAUTH_URL}oneproduct/${encodeURIComponent(oneproduct?.slug)}`,
       lastmod: oneproduct?.lastmod,
       changefreq: "daily",
-      priority: 0.7,
+      priority: 0.8,
     };
   });
 
