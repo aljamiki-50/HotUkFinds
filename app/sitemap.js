@@ -16,7 +16,7 @@ export default async function sitemap() {
 
   const another = products.map((oneproduct) => {
     return {
-      url: `${process.env.NEXTAUTH_URL}oneproduct/${encodeURIComponent(oneproduct?.slug)}`,
+      url: `${process.env.NEXTAUTH_URL}oneproduct/${oneproduct?.slug}`,
       lastmod: oneproduct?.lastmod,
       changefreq: "daily",
       priority: 0.8,

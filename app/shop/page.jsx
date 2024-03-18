@@ -60,7 +60,6 @@ const Page = ({ searchParams }) => {
     fetchtrending();
   }, [searchParams.search]); // Removed extra empty array here
 
-  // console.log(popularProducts);
 
   const NextArrow = (props) => {
     const { onClick } = props;

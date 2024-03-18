@@ -24,8 +24,11 @@ const ProductCard = ({ items }) => {
   ));
 
   return (
-    <div className=" bg-red-500  w-full h-full rounded-lg overflow-hidden">
-      <Link suppressHydrationWarning href={`/oneproduct/${items?.slug}`}>
+    <div className="  w-full h-full rounded-lg overflow-hidden">
+      <Link
+        // suppressHydrationWarning
+        href={`/oneproduct/${items?.slug}`}
+      >
         <div className="">
           <div
             suppressHydrationWarning
@@ -79,8 +82,9 @@ const ProductCard = ({ items }) => {
             <div className=" flex items-center justify-between">
               <Link
                 className=" w-full text-center  bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100   hover:bg-orange-800 hover:text-white duration-200
-                 "
-                href="https://www.amazon.com/dp/B00KCIZ5SM?linkCode=ssc&tag=onamzvivirose-20&creativeASIN=B00KCIZ5SM&asc_item-id=amzn1.ideas.3R2OGRKAUHVS1&ref_=aip_sf_list_spv_ofs_mixed_d_asin&th=1"
+          "
+                // href="https://www.amazon.com/dp/B00KCIZ5SM?linkCode=ssc&tag=onamzvivirose-20&creativeASIN=B00KCIZ5SM&asc_item-id=amzn1.ideas.3R2OGRKAUHVS1&ref_=aip_sf_list_spv_ofs_mixed_d_asin&th=1"
+                href={items?.affiliateLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >

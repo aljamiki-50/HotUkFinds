@@ -16,6 +16,8 @@ export async function GetCertainProduct(slug) {
       ratings,
       affiliateLink,
       "Trending":trendingProduct->name,
+      "image1":images[0].asset->url,
+
 
     }
   `;

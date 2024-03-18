@@ -16,6 +16,8 @@ const Urbanistt = Urbanist({ subsets: ["latin"] });
 
 export const metadata = {
   robots: { index: true, follow: true },
+  metadataBase: new URL('https://uksaverz.com'),
+
   title: {
     // the default to be view
     default: "Uksaverz.com",

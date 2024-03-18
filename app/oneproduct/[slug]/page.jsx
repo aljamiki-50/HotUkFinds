@@ -5,8 +5,8 @@ import OneProduct from "@/components/api/product/oneproductpage/OneProduct";
 import { cache } from "react";
 
 // export const dynamic = "force-dynamic";
-// very important to let this cache around 
-const getpost = cache
+// very important to let this cache around
+const getpost = cache;
 
 // export const metadata = {
 //   robots: { index: true, follow: true },
@@ -29,17 +29,31 @@ const getpost = cache
 // };
 
 export async function generateMetadata({ params }) {
-  const {slug} = params;
+  const { slug } = params;
 
   const product = await GetCertainProduct(slug);
 
+  const imageRef = product?.image1;
+
+  const imageUrl = imageRef;
+
   return {
-    title: product.name || "here",
+    robots: { index: true, follow: true },
+    title: product.name || "uksaverz.com",
     description: product.description,
+    twitter: {
+      card: "summary_large_image",
+    },
+    openGraph: {
+      type: "website",
+      url: `https://uksaverz.com/oneproduct/${slug}`,
+      title: product.name || "uksaverz.com",
+      description: product.description,
+      images: imageUrl,
+    },
   };
 }
 
-// generateMetadata()
 
 const OneProudctPage = ({ params }) => {
   const { slug } = params;
