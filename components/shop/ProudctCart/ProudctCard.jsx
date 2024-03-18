@@ -6,14 +6,12 @@ import { FaShippingFast } from "react-icons/fa";
 import FormatedAmounts from "@/components/FormatedAmounts/FormatedAmounts";
 import { LuExternalLink } from "react-icons/lu";
 import Link from "next/link";
-// import OneProduct from "@/components/api/product/OneProduct";
 import { GoLinkExternal } from "react-icons/go";
 import { CiRead } from "react-icons/ci";
 
 const ProudctCard = ({ product }) => {
   const [ishovered, setishovered] = useState(false);
 
-  // console.log(product?.image1);
   return (
     <div className=" sm:grid sm:grid-cols-6  ring-1 ring-black rounded-lg   bg-white items-center align-center  p-3 gap-x-3 py-4">
       <div className=" col-span-7   sm:col-span-2  object-cover pt-5  w-full h-full">

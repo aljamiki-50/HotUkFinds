@@ -36,6 +36,7 @@ export async function generateMetadata({ params }) {
   const imageRef = product?.image1;
 
   const imageUrl = imageRef;
+  const imageUkl = imageRef;
 
   return {
     robots: { index: true, follow: true },
