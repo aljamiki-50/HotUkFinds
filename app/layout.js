@@ -10,8 +10,8 @@ import SmoothScroll from "@/components/SmothScroll/smoothscroller";
 import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
-import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
-// import { GoogleAnalytics } from '@next/third-parties/google'
+// import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const Urbanistt = Urbanist({ subsets: ["latin"] });
 
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         />
         {/* Add the data layer  */}
 
-        <Script
+        {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-JJWN3Q9XZ1"
           strategy="lazyOnload"
         ></Script>
@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
 
           gtag('config', 'G-JJWN3Q9XZ1');
         `}
-        </Script>
+        </Script> */}
         <h1>My Page</h1>
       </Head>
       <body
@@ -94,8 +94,10 @@ export default function RootLayout({ children }) {
           <Footers />
           {/* {process.env.NODE_ENV== "development"? " " :   <Footers />} */}
         </Session>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+
         {/* {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? ( */}
-          <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        {/* <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> */}
         {/* ) : null} */}
       </body>
     </html>
