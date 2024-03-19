@@ -9,10 +9,11 @@ import Shopheader from "@/components/shop/Shopheader";
 import SmoothScroll from "@/components/SmothScroll/smoothscroller";
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
+import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
+// import { GoogleAnalytics } from '@next/third-parties/google'
 
 const Urbanistt = Urbanist({ subsets: ["latin"] });
-
-// console.log("here is it  ",process.env.NODE_ENV)
 
 export const metadata = {
   robots: { index: true, follow: true },
@@ -39,23 +40,14 @@ export const metadata = {
   ogImage: "/opengraph-image.jpg",
 };
 
-// <!-- Facebook Meta Tags -->
-// <meta property="og:url" content="https://v7efadu7v5rwvdo4syg7han2mu.srv.us/">
-// <meta property="og:type" content="website">
-// <meta property="og:title" content="Uksaverz.com">
-// <meta property="og:description" content="Welcome to the treasure trove of the UK! 🇬🇧 Explore the best finds across all categories - gadgets, fashion, home decor, and more at UKBestFinds. 🛍️ Your one-stop shop for quality items at unbeatable prices. 🌟 Join our community of savvy shoppers today and discover your next favorite thing! 💼💄🎮 #UKSaverz 💰">
-// <meta property="og:image" content="http://localhost:3001/opengraph-image.jpg?03a59d269aa26c63">
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
         <meta name="og:image" content={metadata.ogImage} />
-
         <title>
           {metadata.title.template.replace("%s", metadata.title.default)}
         </title>
-
         <meta
           name="google-site-verification"
           content="coKkiJhG8EmTc2KhZf2O3vBpvGdtoEm40jJgGJihVaA"
@@ -86,6 +78,9 @@ export default function RootLayout({ children }) {
           <Footers />
           {/* {process.env.NODE_ENV== "development"? " " :   <Footers />} */}
         </Session>
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
+          <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        ) : null}
       </body>
     </html>
   );
