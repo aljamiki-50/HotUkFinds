@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
         {/* Add the data layer  */}
 
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-PWWYMR6PMZ"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JJWN3Q9XZ1"
           strategy="lazyOnload"
         ></Script>
         <Script id="google-analytics">
@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-PWWYMR6PMZ');
+          gtag('config', 'G-JJWN3Q9XZ1');
         `}
         </Script>
         <h1>My Page</h1>
