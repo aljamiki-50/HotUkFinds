@@ -68,6 +68,22 @@ export default function RootLayout({ children }) {
           property="og:image"
           content="http://localhost:3001/opengraph-image.jpg?03a59d269aa26c63"
         />
+        {/* Add the data layer  */}
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PWWYMR6PMZ"
+          strategy="lazyOnload"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-PWWYMR6PMZ');
+        `}
+        </Script>
+        <h1>My Page</h1>
       </Head>
       <body
         className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
