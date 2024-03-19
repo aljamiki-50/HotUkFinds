@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
           <Footers />
           {/* {process.env.NODE_ENV== "development"? " " :   <Footers />} */}
         </Session>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        <GoogleAnalytics gaId="G-JJWN3Q9XZ1" />
 
         {/* {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? ( */}
         {/* <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} /> */}
