@@ -16,7 +16,7 @@ const Urbanistt = Urbanist({ subsets: ["latin"] });
 
 export const metadata = {
   robots: { index: true, follow: true },
-  metadataBase: new URL('https://uksaverz.com'),
+  metadataBase: new URL("https://uksaverz.com"),
 
   title: {
     // the default to be view
@@ -32,6 +32,9 @@ export const metadata = {
   other: {
     // name: "google-site-verification",
     "google-site-verification": "coKkiJhG8EmTc2KhZf2O3vBpvGdtoEm40jJgGJihVaA",
+
+    // Add the impact-site-verification meta tag
+    "impact-site-verification": "f06b4a53-79a5-4d56-863f-1ce864237a45",
   },
   ogImage: "/opengraph-image.jpg",
 };
