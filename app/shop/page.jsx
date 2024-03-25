@@ -1,169 +1,102 @@
-"use client";
-import Container from "@/components/Container/Container";
-import Header from "@/components/Header/Header";
-import ProudctCard from "@/components/shop/ProudctCart/ProudctCard";
-import Hottest from "@/components/shop/RightBar/Hottest";
-import Shopheader from "@/components/shop/Shopheader";
-import React, { useEffect, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaGripfire } from "react-icons/fa";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { client } from "@/sanity/lib/client";
 import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
-import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
-import { popularTrend } from "@/Helpers/oneSlugPage/popularPage";
+import ShopComponent from "@/components/shop/shop";
+import { CiShoppingCart } from "react-icons/ci";
 
-const Page = ({ searchParams }) => {
-  const [shopProducts, setShopProducts] = useState([]);
-  const [popularProducts, setPopularProducts] = useState([]);
-  const [trendingproducts, setTrendingproducts] = useState([]);
+import React, { cache } from "react";
 
-  // console.log(searchParams.search);
+const getpost = cache;
 
-  useEffect(() => {
-    const fetchProductsAll = async () => {
-      try {
-        const Fetchalldata = await GetShopData(); // Assuming this function retrieves all products
-        let filteredProducts = Fetchalldata;
+// export async function generateMetadata({ searchParams }) {
+//   // const { slug } = params;
 
-        // If searchParams.search is provided, filter the products based on it
-        if (searchParams.search) {
-          filteredProducts = Fetchalldata.filter((product) =>
-            product.name
-              .toLowerCase()
-              .includes(searchParams.search.toLowerCase())
-          );
-          setShopProducts(filteredProducts);
-        } else {
-          setShopProducts(Fetchalldata);
-        }
-      } catch (error) {
-        console.error("Error fetching and filtering shop data:", error);
-        setShopProducts([]);
-      }
-    };
+//   const products = await GetShopData();
 
-    const fetchtrending = async () => {
-      const fetchedtrends = await TrendOnes();
-      setTrendingproducts(fetchedtrends);
-    };
+//   // checking first
+//   if (!products || products.length === 0) {
+//     // If products array is empty, return default metadata
+//     return {
+//       robots: { index: true, follow: true },
+//       title: "shop",
+//       description: "Description of uksaverz.com",
+//       twitter: {
+//         card: "summary_large_image",
+//       },
+//       openGraph: {
+//         type: "website",
+//         url: `https://uksaverz.com/shop/`,
+//         title: "uksaverz.com",
+//         description: "Description of uksaverz.com",
+//         images: [
+//           {
+//             url: "default-image-url.jpg",
+//             alt: "Default image alt text",
+//           },
+//         ],
+//       },
+//     };
+//   }
+//   // then if there is a product
+//   const metadata = products.map((product) => {
+//     const imageUrl = product.image1;
 
-    // is the  lst one ever you
-    const fetchPopTrending = async () => {
-      const fetchPopTrending = await popularTrend();
-      setPopularProducts(fetchPopTrending);
-    };
-    // console.log(popularProducts);
+//     return {
+//       robots: { index: true, follow: true },
+//       title: "Shop ",
+//       description: product.description,
+//       twitter: {
+//         card: "summary_large_image",
+//       },
+//       openGraph: {
+//         type: "website",
+//         url: `https://uksaverz.com/shop/`,
+//         title: product.name || "uksaverz.com",
+//         description: product.description,
+//         images: imageUrl,
+//         // images: [
+//         //   {
+//         //     url: imageUrl,
+//         //     alt: product.name || "Product Image",
+//         //   },
+//         // ],
+//       },
+//     };
+//   });
 
-    fetchPopTrending(), fetchProductsAll();
-    fetchtrending();
-  }, [searchParams.search]); // Removed extra empty array here
+//   return metadata;
+// }
 
-
-  const NextArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <div
-        onClick={onClick}
-        className="sm:absolute  z-30 opacity-40 hover:opacity-90 p-3
-           hover:text--orange-500 duration-200 rounded-full sm:flex  
-           justify-center left-3 bottom-0  hover:bg-white hover:text-black cursor-pointer"
-      >
-        <FaArrowLeft />
-      </div>
-    );
-  };
-
-  const PrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <div
-        onClick={onClick}
-        className="sm:absolute  opacity-40 hover:opacity-90 p-3 z-30
-           bg-slate-100 hover:text--orange-500 duration-200 rounded-full sm:flex 
-           justify-center right-3 bottom-0  hover:bg-white hover:text-black cursor-pointer"
-      >
-        <FaArrowRight />
-      </div>
-    );
-  };
-
-  var settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
-    autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 4000,
-    cssEase: "ease-in-out",
-  };
-
+// const imageRef = product?.image1;
+// const imageUrl = imageRef;
+// const imageUkl = imageRef;
+// return {
+//   robots: { index: true, follow: true },
+//   title: product.name || "uksaverz.com",
+//   description: product.description,
+//   twitter: {
+//     card: "summary_large_image",
+//   },
+//   openGraph: {
+//     type: "website",
+//     url: `https://uksaverz.com/oneproduct/${""}`,
+//     title: product.name || "uksaverz.com",
+//     description: product.description,
+//     images: imageUrl,
+//   },
+// };
+export const metadata = {
+  robots: { index: true, follow: true },
+  title: "  🛍️ shop",
+  description:
+    "Hey there! You made it here, and that's awesome! 🎉 Welcome to our shop section where you can find what you're looking for. We hope you'll discover something that satisfies your needs. Happy shopping! 🛍️",
+  ogImage: "/opengraph-image.jpg",
+};
+const page = ({ searchParams }) => {
+  // console.log("here is the ", searchParams);
   return (
-    <div className="min-h-screen">
-      <div className="">
-        <Shopheader />
-      </div>
-      <Container classname={"bg-slate-100/40"}>
-        <div className="grid grid-cols-7 gap-x-3">
-          <div className="col-span-7 sm:col-span-5 gap-y-2 rounded-lg flex flex-col">
-            {shopProducts?.map((product, index) => (
-              <div key={index} className="">
-                <ProudctCard product={product} />
-              </div>
-            ))}
-          </div>
-          <div className="  hidden  relative sm:col-span-2 ring-1 ring-black rounded-sm px-1 lg:flex flex-col">
-            <div className="">
-              <div className="flex justify-between font-bold items-center mt-9 mx-1">
-                <h1 className="flex items-center text-2xl">
-                  <span className="animate-pulse fill-red-800 text-red-700">
-                    <FaGripfire fill="red" />
-                  </span>
-                  Hottest
-                </h1>
-                <h1 className="text-2xl">Today</h1>
-              </div>
-            </div>
-            <Slider className=" " {...settings}>
-              {trendingproducts &&
-                trendingproducts?.map((trending, index) => (
-                  <div key={index} className="flex flex-col ">
-                    <Hottest items={trending} />
-                  </div>
-                ))}
-            </Slider>
-            {/*  The Popular section */}
-            <div className="">
-              <div className="flex justify-between font-bold items-center mt-9 mx-1">
-                <h1 className="flex items-center text-2xl">
-                  <span className="animate-pulse fill-red-800 text-red-700">
-                    <FaGripfire fill="red" />
-                  </span>
-                  Popular
-                </h1>
-                <h1 className="text-2xl">Today</h1>
-              </div>
-            </div>
-            <div>
-              <Slider className=" " {...settings}>
-                {popularProducts &&
-                  popularProducts?.map((trending, index) => (
-                    <div key={index} className="flex flex-col ">
-                      <Hottest items={trending} />
-                    </div>
-                  ))}
-              </Slider>
-            </div>
-          </div>
-          {/* The  End Popular Section  */}
-        </div>
-      </Container>
+    <div>
+      <ShopComponent searchParams={searchParams} />
     </div>
   );
 };
 
-export default Page;
+export default page;
