@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Container from "../Container/Container";
 import Link from "next/link";
 
-const BannerText = ({ title }) => {
+const BannerText = ({ title,desc,style}) => {
   return (
     <div className=" hidden lg:inline-block mt-28 absolute top-0 left-0 h-full w-full">
       <Container classname=" flex flex-col  gap-y-8 justify-center">
@@ -19,10 +19,14 @@ const BannerText = ({ title }) => {
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className=" text-xl  text-bodyColor"
+          className=" text-xl  text-bodyColor  flex flex-col"
         >
-          Stock up on sport wear and limted Edition collection on our <br />{" "}
-          awesome mid-season sale
+                {/* <p dangerouslySetInnerHTML={{ __html: desc }} /> */}
+          
+          <div className={`${style}  flex flex-col w-1/2 gap-y-3 `}>{desc}</div>
+
+           
+         
         </motion.p>
         <motion.div
           className=" flex  gap-x-4 mt-3 cursor-pointer"

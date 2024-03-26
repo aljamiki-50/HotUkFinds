@@ -16,11 +16,13 @@ const AllProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await GetData();
+
       setProducts(data);
     };
 
     fetchData();
   }, [products]);
+
 
   return (
     <Container

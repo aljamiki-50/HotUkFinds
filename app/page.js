@@ -7,10 +7,6 @@ import Script from "next/script";
 export const metadata = {
   robots: { index: true, follow: true },
   title: " ✅ Home",
-  // in case for absoulte Declaration at the tab it self
-  // title:{
-  //   absoulte: " ✅ AboutUs",
-  // },
 
   ogImage: "/opengraph-image.jpg",
 };
@@ -26,11 +22,11 @@ export default function Home() {
         ></Script>
         <Script id="google-analytics">
           {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-    gtag('config', 'G-PWWYMR6PMZ');
+            gtag('config', 'G-PWWYMR6PMZ');
   `}
         </Script>
       </Head>
