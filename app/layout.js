@@ -36,6 +36,8 @@ export const metadata = {
 
     // Add the impact-site-verification meta tag
     "impact-site-verification": "f06b4a53-79a5-4d56-863f-1ce864237a45",
+    // add facebook metaga taga
+    "facebook-domain-verification": "avzh7lndxlbe06o7uo0u4sviqfz831",
   },
   ogImage: "/opengraph-image.jpg",
 };
@@ -51,6 +53,10 @@ export default function RootLayout({ children }) {
         <meta
           name="google-site-verification"
           content="coKkiJhG8EmTc2KhZf2O3vBpvGdtoEm40jJgGJihVaA"
+        />
+        <meta
+          name="facebook-domain-verification"
+          content="avzh7lndxlbe06o7uo0u4sviqfz831"
         />
 
         {/* <!-- Facebook Meta Tags --> */}
