@@ -7,6 +7,9 @@ import Script from "next/script";
 export const metadata = {
   robots: { index: true, follow: true },
   title: " ✅ Home",
+  other: {
+    "facebook-domain-verification": "yhf39g8x4oyoq2ezv7iso01ekljlq3",
+  },
 
   ogImage: "/opengraph-image.jpg",
 };

@@ -37,7 +37,7 @@ export const metadata = {
     // Add the impact-site-verification meta tag
     "impact-site-verification": "f06b4a53-79a5-4d56-863f-1ce864237a45",
     // add facebook metaga taga
-    "facebook-domain-verification": "avzh7lndxlbe06o7uo0u4sviqfz831",
+    // "facebook-domain-verification": "yhf39g8x4oyoq2ezv7iso01ekljlq3",
   },
   ogImage: "/opengraph-image.jpg",
 };
@@ -45,52 +45,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="og:image" content={metadata.ogImage} />
-        <title>
-          {metadata.title.template.replace("%s", metadata.title.default)}
-        </title>
-        <meta
-          name="google-site-verification"
-          content="coKkiJhG8EmTc2KhZf2O3vBpvGdtoEm40jJgGJihVaA"
-        />
-        <meta
-          name="facebook-domain-verification"
-          content="avzh7lndxlbe06o7uo0u4sviqfz831"
-        />
-
-        {/* <!-- Facebook Meta Tags --> */}
-        <meta
-          property="og:url"
-          content="https://v7efadu7v5rwvdo4syg7han2mu.srv.us/"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Uksaverz.com" />
-        <meta
-          property="og:description"
-          content="Welcome to the treasure trove of the UK! 🇬🇧 Explore the best finds across all categories - gadgets, fashion, home decor, and more at UKBestFinds. 🛍️ Your one-stop shop for quality items at unbeatable prices. 🌟 Join our community of savvy shoppers today and discover your next favorite thing! 💼💄🎮 #UKSaverz 💰"
-        />
-        <meta
-          property="og:image"
-          content="http://localhost:3001/opengraph-image.jpg?03a59d269aa26c63"
-        />
-        {/* Add the data layer  */}
-
-        {/* <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JJWN3Q9XZ1"
-          strategy="lazyOnload"
-        ></Script>
-        <Script id="google-analytics">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-JJWN3Q9XZ1');
-        `}
-        </Script> */}
-        <h1>My Page</h1>
-      </Head>
       <body
         className={`${Urbanistt.className} bg-main-bg w-full bg-slate-100   text-darkText `}
       >
