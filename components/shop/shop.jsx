@@ -1,4 +1,3 @@
-
 "use client";
 import Container from "@/components/Container/Container";
 import Header from "@/components/Header/Header";
@@ -60,7 +59,6 @@ const ShopComponent = ({ searchParams }) => {
     fetchPopTrending(), fetchProductsAll();
     fetchtrending();
   }, [searchParams.search]); // Removed extra empty array here
-
 
   const NextArrow = (props) => {
     const { onClick } = props;
@@ -168,25 +166,3 @@ const ShopComponent = ({ searchParams }) => {
 };
 
 export default ShopComponent;
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import Shopheader from './Shopheader'
-
-// const shopComponent = () => {
-//   return (
-//     <div>
-
-//         hey it s the shop componet
-      
-//     </div>
-//   )
-// }
-
-// export default shopComponent

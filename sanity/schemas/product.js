@@ -18,7 +18,7 @@ export default {
       // and the of field here we telling sanity what kind of an arra
       //   y we using as we afore declared and here we explicty saying its images type array
       of: [{ type: "image" }],
-    },
+    }, 
     {
       name: "description",
       type: "text",

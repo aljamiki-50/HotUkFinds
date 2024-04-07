@@ -53,8 +53,9 @@ const Banner = () => {
     cssEase: "ease-in-out",
   };
   return (
-    <div className="relative outline-none">
-      <Slider {...settings}>
+    <div className="relative outline-none hidden   text-center mx-auto sm:block sm:w-full ">
+      <Slider
+       {...settings}>
         <div className=" relative w-full h-full object-center">
           <Image
             // layout="fill"

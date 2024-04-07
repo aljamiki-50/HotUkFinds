@@ -68,6 +68,24 @@ const Shopheader = () => {
     autoplaySpeed: 1000,
     // waitForAnimate: false
     cssEase: "ease-in-out",
+    responsive: [
+      {
+        breakpoint: 640, // Screens smaller than 768px
+        settings: {
+          slidesToShow: 4, // Show 3 slides on small screens
+        },
+      },
+      {
+        breakpoint: 430, // Screens smaller than 768px
+        settings: {
+          slidesToShow: 2, // Show 3 slides on small screens
+        },
+      },
+      // {
+      //   breakpoint: 9999, // Screens larger than 768px
+      //   settings: "unslick", // Disable the slider on larger screens
+      // },
+    ],
   };
 
   return (

@@ -70,7 +70,7 @@ const Subscribe = () => {
       <Head>
         <title>Subscribe to Our Newsletter</title>
       </Head>
-      <div className="container mx-auto mt-6 py-8 p-6">
+      <div className="  min-h-screen container mx-auto mt-6 py-8 p-6">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl mb-4">Subscribe to Newsletter</h2>
           <form onSubmit={handleSubmit}>

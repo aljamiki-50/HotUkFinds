@@ -7,11 +7,11 @@ import Footers from "@/components/Footers/Footers";
 import Session from "@/components/sessionProviders/SessionProvider";
 import Shopheader from "@/components/shop/Shopheader";
 import SmoothScroll from "@/components/SmothScroll/smoothscroller";
-import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
 // import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import PageNavBar from "@/components/Page/small/PageNavBar";
 
 const Urbanistt = Urbanist({ subsets: ["latin"] });
 
@@ -37,7 +37,7 @@ export const metadata = {
     // Add the impact-site-verification meta tag
     "impact-site-verification": "f06b4a53-79a5-4d56-863f-1ce864237a45",
     // add facebook metaga taga
-    // "facebook-domain-verification": "yhf39g8x4oyoq2ezv7iso01ekljlq3",
+    "facebook-domain-verification": "yhf39g8x4oyoq2ezv7iso01ekljlq3",
   },
   ogImage: "/opengraph-image.jpg",
 };
@@ -51,6 +51,7 @@ export default function RootLayout({ children }) {
         <Session>
           <Header />
           {children}
+          <PageNavBar />
           <Footers />
           {/* {process.env.NODE_ENV== "development"? " " :   <Footers />} */}
         </Session>

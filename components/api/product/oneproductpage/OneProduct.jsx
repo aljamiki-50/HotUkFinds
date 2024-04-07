@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import React from "react";
 import Showproduct from "./showproduct/showproduct";
 import TrendingproductSlider from "./Trendingproduct/TrendingproductSlider";
 import PopularProductSlider from "./popularitems/PopularProductSlider";
 import Container from "@/components/Container/Container";
 
-const OneProduct = ({newslug}) => {
+const OneProduct = ({ newslug }) => {
   return (
     <div>
       <Container>

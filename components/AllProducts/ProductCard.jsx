@@ -24,7 +24,7 @@ const ProductCard = ({ items }) => {
   ));
 
   return (
-    <div className="  w-full h-full rounded-lg overflow-hidden">
+    <div className="  w-full h-full rounded-sm   sm:rounded-lg overflow-hidden">
       <Link
         // suppressHydrationWarning
         href={`/oneproduct/${items?.slug}`}
@@ -38,7 +38,7 @@ const ProductCard = ({ items }) => {
             onMouseLeave={() => {
               setishovered(false);
             }}
-            className=" relative  object-contain  w-full h-96 group overflow-hidden hover:"
+            className=" relative  object-cover  w-full h-96 group overflow-hidden hover:"
           >
             <Image
               src={initialImage}
@@ -47,9 +47,10 @@ const ProductCard = ({ items }) => {
               height={500}
               alt=" picture for"
               className={`
-                           w-full h-full object-fit group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out
+                           w-full h-full object-cover group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out
 
               `}
+              
             />
             {items?.isNew && (
               <span className=" absolute top-2 right-2 font-medium   text-xs px-3 py-1 bg-white duration-200  group-hover:text-white   group-hover:bg-orange-600 rounded-full ">

@@ -1,14 +1,4 @@
-import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
-import ShopComponent from "@/components/shop/shop";
-import { CiShoppingCart } from "react-icons/ci";
-
-import React, { cache } from "react";
-
-const getpost = cache;
-
-//   // const { slug } = params;
-
-//   const products = await GetShopData();
+import LoadingShopComponent from "@/components/shop/LoadingShop";
 
 //   // checking first
 //   if (!products || products.length === 0) {
@@ -82,20 +72,13 @@ const getpost = cache;
 //     images: imageUrl,
 //   },
 // };
-export const metadata = {
-  robots: { index: true, follow: true },
-  title: "  🛍️ shop",
-  description:
-    "Hey there! You made it here, and that's awesome! 🎉 Welcome to our shop section where you can find what you're looking for. We hope you'll discover something that satisfies your needs. Happy shopping! 🛍️",
-  ogImage: "/opengraph-image.jpg",
-};
-const page = ({ searchParams }) => {
-  // console.log("here is the ", searchParams);
+
+const Loading = ({ searchParams }) => {
   return (
     <div>
-      <ShopComponent searchParams={searchParams} />
+      <LoadingShopComponent />
     </div>
   );
 };
 
-export default page;
+export default Loading;

@@ -36,7 +36,7 @@ const Footers = () => {
       className={`${
         pathname.startsWith("/studio/structure") ? "hidden" : "block"
       }  
-      w-full bg-darkText text-slate-100`}
+      w-full  hidden sm:block   bg-black/90 text-slate-100`}
       // "   w-full bg-darkText text-slate-100"
     >
       <Container

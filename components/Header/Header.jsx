@@ -61,8 +61,6 @@ const Header = () => {
     if (text || text === " ") {
       router.push(`/shop?search=${query}`);
     } else if (process.env.NODE_ENV === "development") {
-
-
     } else {
       setTimeout(() => {
         router.push("/");
@@ -79,9 +77,19 @@ const Header = () => {
             " h-full flex items-center md:gap-x-3 justify-between md:justify-start"
           }
         >
-          <Logo />
+          <div className="   hidden sm:flex ">
+            <Logo />
+          </div>
           {/* Search field  */}
-          <div className="w-full group: bg-white hidden md:flex items-center gap-x-1 border-[1px] border-lightText/50 rounded-full px-4 py-1.5 focus-within:border-orange-600 group">
+          <div
+            className={`
+            group:bg-white  sm:flex items-center gap-x-1 border-[1px]
+            border-lightText/50 rounded-full px-4 py-1.5
+             focus-within:border-orange-600 group
+              flex justify-center transi  delay-150 ease-in-out
+              ${text ? "w-full" : "w-[70%]"}
+            `}
+          >
             <FaSearch className="  group-focus-within:text-darkText duration-200 text-gray-500" />
             <input
               value={text}
@@ -89,8 +97,8 @@ const Header = () => {
                 setText(e.target.value);
               }}
               type="text"
-              placeholder="Search for the product"
-              className=" placeholder:text-sm flex-1 outline-none active:ring-1"
+              placeholder="I'm shopping for . .  .  . "
+              className=" placeholder:font-bold placeholder:text focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
             />
           </div>
           {/* Login and register  */}
@@ -99,16 +107,22 @@ const Header = () => {
               onClick={() => {
                 signIn();
               }}
-              className="headerDiv  cursor-pointer"
+              className="
+              sm:flex
+              headerDiv  cursor-pointer"
             >
-              <AiOutlineUser className="text-2xl" />
-              <p className=" text-sm font-semibold  ">Login/Register</p>
+              <AiOutlineUser size={40} className="text-2xl" />
+              <p className=" text-sm font-semibold hidden sm:block   ">
+                Login/Register
+              </p>
             </div>
           )}
           {/* user image  */}
           {session && (
             <Image
-              className=" rounded-full object-cover"
+              className=" 
+              sm:flex
+              rounded-full object-cover"
               width={60}
               height={60}
               src={session?.user?.image}
@@ -122,13 +136,17 @@ const Header = () => {
               }}
               className="headerDiv "
             >
-              <FiLogOut className="text-2xl" />
-              <p className="text-sm font-semibold">Logout</p>
+              <FiLogOut className="  text-2xl" />
+              <p className="text-sm font-semibold hidden sm:block ">Logout</p>
             </div>
           )}
         </Container>
       </div>
-      {pathname.startsWith("/category") && <Shopheader />}
+      {pathname.startsWith("/category/") && (
+        <Shopheader dynamicValue={pathname.substr("/category/".length)} />
+      )}
+
+      {/* {pathname.startsWith("/category") && <Shopheader />} */}
     </div>
   );
 };

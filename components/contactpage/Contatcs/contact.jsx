@@ -15,7 +15,7 @@ const Contact = () => {
         />
         <meta property="og:image" content="/opengraph-image.jpg" />
       </Head>
-      <div className="container mx-auto mt-6 p-6">
+      <div className=" h-screen container mx-auto mt-6 p-6">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl mb-4">Contact Us</h2>
           <ContactForm />

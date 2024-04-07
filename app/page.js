@@ -28,13 +28,14 @@ export default function Home() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-PWWYMR6PMZ');
   `}
         </Script>
       </Head>
       <main className=" h-[10%] items-center justify-between overflow-hidden ">
-        <Banner />
+        <div className=" ">
+          <Banner />
+        </div>
         <AllProducts />
       </main>
     </>
