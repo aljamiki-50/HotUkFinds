@@ -38,7 +38,7 @@ const PageNavBar = () => {
          flex flex-col items-center"
         >
           <LuBadgePercent size={40} />
-          <Link href={"/Deals"}>
+          <Link href={"/deals"}>
             <h1>Deals</h1>
           </Link>
         </div>
@@ -51,9 +51,7 @@ const PageNavBar = () => {
             <BsInfoSquare size={40} />
             <Info text={"info"} />
           </div>
-          {/* <h1>
-            <Info text={"info"} />
-          </h1> */}
+          
         </div>
       </div>
     </div>
