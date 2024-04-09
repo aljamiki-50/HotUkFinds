@@ -1,14 +1,14 @@
 import React from "react";
-import Shopheader from "@/components/shop/Shopheader";
 import LoadingProductCard from "@/components/shop/ProudctCart/LoadingProductCard";
 import LoadingHottest from "@/components/shop/RightBar/LoadingHottest";
 import LoadingContainer from "../Container/LoadingContainer";
+import LoadingShopHeader from "./LoadingShopHeader";
 
-const LoadingShopComponent = () => {
+const LoadingShop = () => {
   return (
     <div className="min-h-screen">
       <div className="hidden sm:block">
-        <Shopheader />
+        <LoadingShopHeader />
       </div>
       <LoadingContainer classname={"bg-slate-100/40"}>
         <div className="grid grid-cols-7 gap-x-3">
@@ -55,4 +55,4 @@ const LoadingShopComponent = () => {
   );
 };
 
-export default LoadingShopComponent;
+export default LoadingShop;

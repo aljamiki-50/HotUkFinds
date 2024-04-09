@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from 'next/legacy/image';
 import React, { useState } from "react";
 import shoe1 from "@/assets/shoe1.jpg";
 import { FaShippingFast } from "react-icons/fa";
@@ -29,6 +29,8 @@ const ProudctCard = ({ product }) => {
           objectPosition="center"
           width={300}
           height={300}
+          // layout="fill"
+
         />
       </div>
       <div className=" col-span-4 flex flex-col gap-y-4">

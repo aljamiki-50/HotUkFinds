@@ -7,7 +7,7 @@ import Footers from "@/components/Footers/Footers";
 import Session from "@/components/sessionProviders/SessionProvider";
 import Shopheader from "@/components/shop/Shopheader";
 import SmoothScroll from "@/components/SmothScroll/smoothscroller";
-import Image from "next/image";
+import Image from 'next/legacy/image';
 import Script from "next/script";
 // import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
 import { GoogleAnalytics } from "@next/third-parties/google";

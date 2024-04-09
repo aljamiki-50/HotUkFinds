@@ -1,7 +1,7 @@
 "use client";
 
 // import { CalPricePersentage } from "@/Helpers/GetAllProudcts";
-import Image from "next/image";
+import Image from 'next/legacy/image';
 import React, { useEffect, useState } from "react";
 import { IoIosStar } from "react-icons/io";
 import Link from "next/link";
@@ -43,8 +43,9 @@ const ProductCard = ({ items }) => {
             <Image
               src={initialImage}
               loading="lazy"
-              width={500}
-              height={500}
+              // width={500}
+              // height={500}
+              layout='fill'
               alt=" picture for"
               className={`
                            w-full h-full object-cover group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out

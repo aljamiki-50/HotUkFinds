@@ -6,7 +6,7 @@ import { PageNotFoundError } from "next/dist/shared/lib/utils";
 
 import React, { cache } from "react";
 
-//importing the cache to enhance our crawl around 
+//importing the cache to enhance our crawl around
 const getpost = cache;
 
 export async function generateMetadata({ params }) {

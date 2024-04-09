@@ -29,7 +29,7 @@ const Categories = () => {
        "
       >
         {categories?.map((category) => (
-          <CategoriesCard category={category} />
+        <CategoriesCard category={category} />
         ))}
       </div>
     </Container>

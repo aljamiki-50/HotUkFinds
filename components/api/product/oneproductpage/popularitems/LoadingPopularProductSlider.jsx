@@ -1,11 +1,7 @@
-import Slider from "react-slick";
+import React from "react";
 import LoadingProductCartContainer from "../ProductCardContinaer/LoadingProductCartContainer";
 
-const PopularProductSlider = ({ oneslug }) => {
-  const Certain = oneslug;
-
-  //   console.log("the new one  ", Certain);
-
+const LoadingPopularProductSlider = () => {
   return (
     <div>
       <div className=" flex  flex-col ">
@@ -15,4 +11,4 @@ const PopularProductSlider = ({ oneslug }) => {
   );
 };
 
-export default PopularProductSlider;
+export default LoadingPopularProductSlider;

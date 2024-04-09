@@ -3,7 +3,7 @@ import React from "react";
 const LoadingHottest = () => {
   return (
     <div className="mt-3 flex flex-col gap-y-3 animate-pulse">
-      {[...Array(3)].map((_, index) => (
+      {[...Array(10)].map((_, index) => (
         <div
           key={index}
           className="grid grid-cols-7 gap-y-3 border-b-2 border-black border-spacing-4 gap-x-2"

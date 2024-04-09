@@ -1,10 +1,13 @@
-import Image from "next/image";
+import Image from 'next/legacy/image';
 import React from "react";
 
 const Deals = () => {
   return (
-    <div class=" grid justify-center    bg-gray-100  py-[300px] sm:py-40">
-      <h1 className=" text-xl font-bold "> we Still Looking For The best Deals Yet  </h1>
+    <div class=" grid justify-center   min-h-screen   bg-gray-100  py-[300px] sm:py-40">
+      <h1 className=" text-xl font-bold ">
+        {" "}
+        we Still Looking For The best Deals Yet{" "}
+      </h1>
       <div class="  hidden bg-gray-100 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -18,6 +21,7 @@ const Deals = () => {
               <div class="mt-6">
                 <Image
                   src=""
+                  layout='fill'
                   alt="Product Image"
                   class="w-full h-64 object-cover rounded-lg"
                 />

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { BsBookmark } from "react-icons/bs";
 import { CiShoppingCart } from "react-icons/ci";
@@ -83,7 +83,7 @@ const Header = () => {
           {/* Search field  */}
           <div
             className={`
-            group:bg-white  sm:flex items-center gap-x-1 border-[1px]
+            group:bg-white active:bg-white sm:flex items-center gap-x-1 border-[1px]
             border-lightText/50 rounded-full px-4 py-1.5
              focus-within:border-orange-600 group
               flex justify-center   transition-all  delay-150 ease-in-out
@@ -97,8 +97,8 @@ const Header = () => {
                 setText(e.target.value);
               }}
               type="text"
-              placeholder="I'm shopping for . .  .  . "
-              className="placeholder:bg-white  placeholder:py-3 placeholder:font-bold placeholder:text focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
+              placeholder="I'm shopping for . .  .  . . . . . . "
+              className="  bg-inherit   placeholder:py-3 placeholder:font-bold placeholder:text-indigo-900 focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
             />
           </div>
           {/* Login and register  */}
@@ -125,6 +125,7 @@ const Header = () => {
               rounded-full object-cover"
               width={60}
               height={60}
+              layout="fill"
               src={session?.user?.image}
               alt="my profile image"
             />

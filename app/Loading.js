@@ -1,18 +1,12 @@
-// import LoadingSkeleton from "@/components/loading/LoadingSkeleton";
-
-// export default function Loading() {
-//   // You can add any UI inside Loading, including a Skeleton.
-//   return <LoadingSkeleton />;
-// }
-
 import Header from "@/components/Header/Header";
 import LoadingFooters from "@/components/Footers/LoadingFooter";
 import LoadingPageNavBar from "@/components/Page/small/LoadingPageNavBar";
+import LoadingHeader from "@/components/Header/LoadingHeader";
 
 const Loading = () => {
   return (
     <>
-      <Header />
+      <LoadingHeader />
       <LoadingPageNavBar />
       <LoadingFooters />
     </>

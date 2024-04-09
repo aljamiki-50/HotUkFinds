@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import FormatedAmounts from "@/components/FormatedAmounts/FormatedAmounts";
 import { LuExternalLink } from "react-icons/lu";
@@ -7,6 +6,7 @@ import { FaGripfire } from "react-icons/fa";
 import Link from "next/link";
 import { GetShopData } from "@/Helpers/ShopProudcts/ShopProducts";
 import { TrendOnes } from "@/Helpers/oneSlugPage/trendPage";
+import Image from "next/legacy/image";
 
 const Hottest = ({ items }) => {
   const [trendingproducts, setTrendingproducts] = useState([]);
@@ -37,14 +37,14 @@ const Hottest = ({ items }) => {
       {trendingproducts &&
         trendingproducts?.map((trendingone, index) => (
           <div className=" grid grid-cols-7 gap-y-3 border-b-2 border-black  border-spacing-4   gap-x-2">
-            <div className=" rounded-lg w-full object-cover col-span-2 bg-red-300">
+            <div className=" rounded-lg w-full  col-span-2 ">
               <Link href={`/oneproduct/${trendingone?.slug}`}>
                 <Image
-                  className=" object-contain rounded-lg w-full h-full"
+                  className="  rounded-lg w-full h-full"
                   src={trendingone?.image1}
                   width={100}
                   height={100}
-                  objectFit="contain"
+                  layout="fixed"
                 />
               </Link>
             </div>

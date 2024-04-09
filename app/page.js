@@ -1,7 +1,7 @@
 import AllProducts from "@/components/AllProducts/AllProducts";
 import Banner from "@/components/Banner/Banner";
 import Head from "next/head";
-import Image from "next/image";
+import Image from 'next/legacy/image';
 import Script from "next/script";
 
 export const metadata = {

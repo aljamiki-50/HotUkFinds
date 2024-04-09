@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import ProductCartContainer from "../ProductCardContinaer/ProductCartContainer";
+import LoadingProductCartContainer from "../ProductCardContinaer/LoadingProductCartContainer";
 
 const TrendingproductSlider = ({ oneslug }) => {
   const Certain = oneslug;
@@ -9,7 +10,7 @@ const TrendingproductSlider = ({ oneslug }) => {
   return (
     <div>
       <div className=" flex  flex-col ">
-        <ProductCartContainer oneslug={Certain} />
+        <LoadingProductCartContainer />
       </div>
     </div>
   );

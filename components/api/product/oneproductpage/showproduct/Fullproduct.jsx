@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import ImagesGallery from "../../ImagesScroller";
 import Link from "next/link";
@@ -18,7 +17,7 @@ const Fullproduct = ({ One }) => {
     fetchProduct();
   }, [One]);
 
-    // console.log("here the one  product is ", product);
+  // console.log("here the one  product is ", product);
   return (
     <div>
       <div className=" grid gap-8  sm:grid-cols-2">
@@ -31,7 +30,7 @@ const Fullproduct = ({ One }) => {
               </Link>
             </span>
             <h2 className=" text-2xl font-bold text-gray-800 lg:text-3xl">
-              {product?.slug}
+              {product?.name}
             </h2>
           </div>
           <div className=" mb-6 flex items-center gap-3 md:mb-10">
@@ -45,7 +44,7 @@ const Fullproduct = ({ One }) => {
           </div>
           <div className=" mb-4">
             <div className=" flex items-end  gap-2">
-              <span className="  text-xl font-bold text-green-800 md:text-2xl">
+              <span className="  text-xl font-bold text-green-800 md:text-4xl">
                 £ {""}
                 {product?.price}
               </span>
@@ -60,7 +59,7 @@ const Fullproduct = ({ One }) => {
           </div>
           <div className=" mb-6 flex items-center gap-2 text-gray-500">
             <BsTruck className=" w-6 h-6" />
-            <span className=" text-sm"> 2-4 days shipping</span>
+            <span className=" text-sm"> 2-4 days <span className=" text-green-900  md:text-2xl font-bold ">Free</span> shipping</span>
           </div>
           <div className=" flex gap-2.5">
             {product && product.affiliateLink && (
