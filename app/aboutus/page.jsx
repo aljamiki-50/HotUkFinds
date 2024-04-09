@@ -5,20 +5,17 @@ import Head from "next/head";
 export const metadata = {
   robots: { index: true, follow: true },
   title: " ✅ AboutUs",
-  // in case for absoulte Declaration at the tab it self 
+  // in case for absoulte Declaration at the tab it self
   // title:{
   //   absoulte: " ✅ AboutUs",
   // },
- 
+
   ogImage: "/opengraph-image.jpg",
 };
 
 const AboutUs = () => {
   return (
-    <>
-      <Head>
-        <title>About Us</title>
-      </Head>
+    <div className=" min-h-screen sm:min-h-[680px]">
       <header className="bg-white border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
         <div className="flex items-center justify-between mb-4 md:mb-0">
           <h1 className="leading-none text-2xl text-gray-800">Our Company</h1>
@@ -47,7 +44,7 @@ const AboutUs = () => {
       <footer className="bg-gray-200 text-center text-xs p-3 absolute bottom-0 w-full">
         <p>&copy; 2024 Our Company. All rights reserved.</p>
       </footer>
-    </>
+    </div>
   );
 };
 
