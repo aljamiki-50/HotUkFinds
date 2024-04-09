@@ -13,7 +13,7 @@ import Info from "@/components/ui/Info";
 
 const PageNavBar = () => {
   return (
-    <Container classname="  sm:0  bottom-0 sticky   sm:hidden    py-0  bg-white ring-1  ring-black rounded-s ">
+    <div className="  sm:0  bottom-0 sticky   sm:hidden    py-0  bg-white   ring-black rounded-s ">
       <div className=" grid grid-cols-4 gap-x-2  items-start text-center p-0 py-0  ">
         <div
           className=" text-center shadow-md   antialiased font-bold 
@@ -38,23 +38,25 @@ const PageNavBar = () => {
          flex flex-col items-center"
         >
           <LuBadgePercent size={40} />
-          <h1>Deals</h1>
+          <Link href={"/Deals"}>
+            <h1>Deals</h1>
+          </Link>
         </div>
         <div
           className=" text-center shadow-md   antialiased font-bold
          flex flex-col items-center"
         >
-          {/* <div> */}
-
-          <BsInfoSquare size={40} />
-          <Info text={"info"} />
-          {/* </div> */}
+          <div>
+            {" "}
+            <BsInfoSquare size={40} />
+            <Info text={"info"} />
+          </div>
           {/* <h1>
             <Info text={"info"} />
           </h1> */}
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
