@@ -7,7 +7,6 @@ import { TbJewishStar } from "react-icons/tb";
 import { BsInfoSquare } from "react-icons/bs";
 import { LuBadgePercent } from "react-icons/lu";
 
-
 import { CiHeart } from "react-icons/ci";
 import Link from "next/link";
 import Info from "@/components/ui/Info";
@@ -45,11 +44,11 @@ const PageNavBar = () => {
           className=" text-center shadow-md   antialiased font-bold
          flex flex-col items-center"
         >
-          <div>
-            {" "}
-            <BsInfoSquare size={40} />
-            <Info text={"info"}  />
-          </div>
+          {/* <div> */}
+
+          <BsInfoSquare size={40} />
+          <Info text={"info"} />
+          {/* </div> */}
           {/* <h1>
             <Info text={"info"} />
           </h1> */}

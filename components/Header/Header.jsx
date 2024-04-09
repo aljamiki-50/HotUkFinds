@@ -86,7 +86,7 @@ const Header = () => {
             group:bg-white  sm:flex items-center gap-x-1 border-[1px]
             border-lightText/50 rounded-full px-4 py-1.5
              focus-within:border-orange-600 group
-              flex justify-center transi  delay-150 ease-in-out
+              flex justify-center   transition-all  delay-150 ease-in-out
               ${text ? "w-full" : "w-[70%]"}
             `}
           >
@@ -98,7 +98,7 @@ const Header = () => {
               }}
               type="text"
               placeholder="I'm shopping for . .  .  . "
-              className=" placeholder:font-bold placeholder:text focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
+              className="placeholder:bg-white  placeholder:py-3 placeholder:font-bold placeholder:text focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
             />
           </div>
           {/* Login and register  */}
