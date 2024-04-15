@@ -98,7 +98,7 @@ const Header = () => {
               }}
               type="text"
               placeholder="I'm shopping for . .  .  . . . . . . "
-              className="  bg-inherit   placeholder:py-3 placeholder:font-bold placeholder:text-indigo-900 focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
+              className="  bg-inherit   placeholder:py-3 placeholder:font-bold placeholder:tracking-widest placeholder:pl-5 placeholder:text-orange-500 focus:w-full active:w-full  placeholder:text-xl flex-1 outline-none "
             />
           </div>
           {/* Login and register  */}

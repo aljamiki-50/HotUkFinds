@@ -49,13 +49,14 @@ const ProudctCard = ({ product }) => {
             </Link>
           </h1>
           <div className=" flex items-center gap-x-2">
-            <span className="  text-xl font-bold">
+            <span className=" text-green-600   text-3xl font-bold">
               {" "}
               <FormatedAmounts amount={product?.price} />
             </span>{" "}
             <span className=" flex items-center border-r border-black   px-1 gap-x-2 font-semibold">
               <FaShippingFast /> Free
             </span>{" "}
+            
             {/* <span>{product?.name}</span> */}
           </div>
           <p className="     line-clamp-2 font-medium antialiased">

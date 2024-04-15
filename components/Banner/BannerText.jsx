@@ -35,14 +35,14 @@ const BannerText = ({ title,desc,style}) => {
           transition={{ duration: 0.8 }}
         >
           <Link
-            className=" z-30 py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase"
-            href={"/shop"}
+            className="  font-black font-bold z-30 py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase"
+            href={"/category"}
           >
             Find out More
           </Link>
 
           <Link
-            className=" z-30 py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase"
+            className=" font-bold z-30 py-3 px-6 rounded-full bg-slate-200 hover:bg-white duration-200 text-sm uppercase"
             href={"/shop"}
           >
             Shop Now

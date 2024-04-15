@@ -1,7 +1,7 @@
 "use client";
 
 // import { CalPricePersentage } from "@/Helpers/GetAllProudcts";
-import Image from 'next/legacy/image';
+import Image from "next/legacy/image";
 import React, { useEffect, useState } from "react";
 import { IoIosStar } from "react-icons/io";
 import Link from "next/link";
@@ -11,6 +11,8 @@ import { CalPricePersentage } from "@/Helpers/CallPrice";
 const ProductCard = ({ items }) => {
   const [ishovered, setishovered] = useState(false);
   const [initialImage, setInitialImage] = useState(items?.image1);
+
+  // console.log("the items is ", items?.categoryName);
 
   useEffect(() => {
     setInitialImage(ishovered ? items?.image2 : items?.image1);
@@ -26,8 +28,12 @@ const ProductCard = ({ items }) => {
   return (
     <div className="  w-full h-full rounded-sm   sm:rounded-lg overflow-hidden">
       <Link
-        // suppressHydrationWarning
-        href={`/oneproduct/${items?.slug}`}
+        href={
+          // items?.categoryName === "sport"
+          //   ? "/oneproduct/sport"
+          //   :
+          `/oneproduct/${items?.slug}`
+        }
       >
         <div className="">
           <div
@@ -38,20 +44,19 @@ const ProductCard = ({ items }) => {
             onMouseLeave={() => {
               setishovered(false);
             }}
-            className=" relative  object-cover  w-full h-96 group overflow-hidden hover:"
+            className=" relative    w-full h-96 group overflow-hidden hover:"
           >
             <Image
               src={initialImage}
               loading="lazy"
               // width={500}
               // height={500}
-              layout='fill'
+              layout="fill"
               alt=" picture for"
               className={`
-                           w-full h-full object-cover group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out
+                           w-full h-full  group-hover:scale-110  rounded-t-lg group-hover:duration-500 group-hover:ease-in-out
 
               `}
-              
             />
             {items?.isNew && (
               <span className=" absolute top-2 right-2 font-medium   text-xs px-3 py-1 bg-white duration-200  group-hover:text-white   group-hover:bg-orange-600 rounded-full ">
