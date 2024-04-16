@@ -1,13 +1,13 @@
-import React from 'react'
+import SportPromoShowcase from "@/components/api/product/oneproductpage/SportPage/SportPromoShowcase/SportPromoShowcase";
+import React from "react";
 
 const page = () => {
+
   return (
     <div>
-
-        it s the sport page
-      
+      <SportPromoShowcase />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
