@@ -3,7 +3,7 @@ import Container from "../Container/Container";
 import sale1 from "@/assets/sale1.jpg";
 import sale2 from "@/assets/sale2.jpg";
 import sale3 from "@/assets/sale3.jpg";
-import Image from 'next/legacy/image';
+import Image from "next/legacy/image";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
@@ -102,10 +102,10 @@ const Shopheader = () => {
                   <Link href={`/category/${item?.category}`}>
                     <h1
                       className="  flex justify-center items-center gap-x-2 uppercase
-                     bg-slate-700/95 ring-black text-bodyColor ring-2 rounded-lg p-2  w-[90%]   text-center  ml-2  "
+                      bg-gray-800 text-white font-bold ring-black text-bodyColor ring-2 rounded-lg p-2  w-[90%]   text-center  ml-2  "
                     >
                       {item?.category}
-                      <span>
+                      <span className=" hidden">
                         <IoHomeOutline />
                       </span>
                     </h1>

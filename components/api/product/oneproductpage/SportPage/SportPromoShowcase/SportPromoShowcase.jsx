@@ -5,6 +5,9 @@ import shoe2 from "@/assets/shoe2.jpg";
 // import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 import { GetCategoryProduct } from "@/Helpers/categoryPage/categoryPage";
+import Banner from "@/components/Banner/Banner";
+import Link from "next/link";
+import product from "@/sanity/schemas/product";
 
 const SportPromoShowcase = () => {
   const [products, setProducts] = useState([]);
@@ -22,7 +25,9 @@ const SportPromoShowcase = () => {
     fetchData();
   }, []);
 
-  console.log(products);
+  // products.map((product) => {
+  //   console.log("the new cat  ",product?.slug);
+  // });
 
   const productts = [
     {
@@ -117,45 +122,54 @@ const SportPromoShowcase = () => {
     },
   ];
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-cyan-900 py-12">
+      {/* <div className=" ">
+        <Banner />
+      </div> */}
       <div className="  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-left">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            {products?.categoryName} Promo Showcase
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+            SPORT PRODUCTS
           </h2>
-          <p className=" text-left mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          <p className=" text-left mt-3 max-w-2xl  text-xl text-white sm:mt-4">
             Check out our latest sport products and accessories.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+        <div className="mt-12   grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products?.slice(0, 50).map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-50 lg:h-80 lg:aspect-none">
-                <Image
-                  src={product.image1}
-                  alt={product.imageAlt}
-                  layout="fill"
-                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-                />
-              </div>
-              <div className="mt-4 antialiased flex justify-between   ">
-                <div>
-                  <h3 className="text-xl font-bold text-white-900   ">
-                    <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product?.name.slice(0, 20)}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-red-500">
-                    {/* {product?.description} */}
+            <Link
+              key={product.id}
+              className=" ring-1 ring-gray-700"
+              href={`/oneproduct/${product?.slug}`}
+            >
+              <div className="group relative">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-40 lg:h-80 lg:aspect-none">
+                  <Image
+                    src={product.image1}
+                    alt={product.imageAlt}
+                    layout="fill"
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                </div>
+                <div className="mt-4 antialiased flex justify-between sm:pb-3 sm:px-5   ">
+                  <div>
+                    <h3 className="text-xl  font-extrabold  text-white   ">
+                      <a href={product.href}>
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {product?.name.slice(0, 20)}
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-red-500">
+                      {/* {product?.description} */}
+                    </p>
+                  </div>
+                  <p className="text-2xl   font-extrabold  text-white">
+                    £ {product?.price}
                   </p>
                 </div>
-                <p className="text-2xl   font-extrabold text-red-950">
-                  £ {product?.price}
-                </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
